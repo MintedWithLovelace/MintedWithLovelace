@@ -1,2 +1,2 @@
-# Minted
-A Cardano Blockchain dApp
+# MintedWith
+A Cardano Blockchain dApp coming in Alpha, December
