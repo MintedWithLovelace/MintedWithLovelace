@@ -1,2 +1,2 @@
-# MintedWith
-A Cardano Blockchain dApp coming in Alpha, December
+# MintedWithLovelace
+Decentralized NFT launchpad and marketplace on the Cardano blockchain. Coming December 22, 2021.
