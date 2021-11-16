@@ -1,0 +1,1 @@
+MintedWithLovelace assets
