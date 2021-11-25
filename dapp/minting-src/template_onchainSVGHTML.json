@@ -1,0 +1,24 @@
+{
+    "721": {
+        "000_POLICY_ID_000": {
+            "000_NAME_000": {
+                "name": "change",
+                "artist": "change",
+                "attributes": [
+                    "change",
+                    "change",
+                    "change"
+                ],
+                "collection": "change",
+                "special": "change",
+                "files": [
+                    { "mediaType": "text/html",
+                        "src": 000_FILE_000
+                    }
+                ],
+                "image": 000_SVG_000,
+                "mediaType": "image/svg+xml"
+            }
+        }
+    }
+ }
