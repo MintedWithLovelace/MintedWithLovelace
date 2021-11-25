@@ -1,0 +1,12 @@
+{
+    "721": {
+        "000_POLICY_ID_000": {
+            "000_NAME_000": {
+                "name": "000_NICENAME_000",
+                "artist": "change",
+                "attributes": 000_ATTS_000,
+                "image": "ipfs://000_IPFSHASH_000"
+            }
+        }
+    }
+ }
