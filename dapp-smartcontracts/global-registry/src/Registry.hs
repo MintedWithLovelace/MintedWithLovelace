@@ -40,8 +40,8 @@ PlutusTx.makeLift ''RegistryDatum
 
 {-# INLINABLE registryValidator #-}
 registryValidator :: RegistryDatum -> () -> ScriptContext -> Bool
-registryValidator dat () ctx = traceIfFalse "missing pubkey" signedByOwner P.&&
-                               traceIfFalse "invalid royalty" checkRoyalty
+registryValidator dat () ctx = traceIfFalse "invalid/missing pubkey" signedByOwner P.&&
+                               traceIfFalse "invalid/missing royalty" checkRoyalty
 
     where
       info :: TxInfo
