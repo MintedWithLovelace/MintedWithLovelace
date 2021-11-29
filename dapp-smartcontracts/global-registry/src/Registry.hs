@@ -35,11 +35,13 @@ data RegistryDatum = RegistryDatum
     , creatorRoyalty :: !Integer
     }
 
-PlutusTx.unstableMakeIsData ''RegistryDatum
+PlutusTx.makeIsDataIndexed ''RegistryDatum [('RegistryDatum,0)]
+PlutusTx.makeLift ''RegistryDatum
 
 {-# INLINABLE registryValidator #-}
 registryValidator :: RegistryDatum -> () -> ScriptContext -> Bool
-registryValidator dat () ctx = traceIfFalse "missing pubkey" signedByOwner
+registryValidator dat () ctx = traceIfFalse "missing pubkey" signedByOwner P.&&
+                               traceIfFalse "invalid royalty" checkRoyalty
 
     where
       info :: TxInfo
@@ -47,6 +49,12 @@ registryValidator dat () ctx = traceIfFalse "missing pubkey" signedByOwner
 
       signedByOwner :: Bool
       signedByOwner = txSignedBy info $ creatorPubKey dat
+
+      minRoyalty :: Integer
+      minRoyalty = 0
+
+      checkRoyalty :: Bool
+      checkRoyalty = (creatorRoyalty dat) P.> minRoyalty
 
 data RegistryTyped
 instance Scripts.ValidatorTypes RegistryTyped where
