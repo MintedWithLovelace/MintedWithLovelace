@@ -35,6 +35,7 @@ data RegistryParams = RegistryParams
     }
 PlutusTx.makeLift ''RegistryParams
 
+{-# INLINABLE registryValidator #-}
 registryValidator :: RegistryParams -> BuiltinData -> BuiltinData -> ScriptContext -> Bool
 registryValidator registry _ _ context = traceIfFalse "missing mwl pubkey" signedByMwl
 
