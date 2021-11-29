@@ -54,7 +54,7 @@ registryValidator dat () ctx = traceIfFalse "missing pubkey" signedByOwner P.&&
       minRoyalty = 0
 
       checkRoyalty :: Bool
-      checkRoyalty = (creatorRoyalty dat) P.> minRoyalty
+      checkRoyalty = (creatorRoyalty dat) P.>= minRoyalty
 
 data RegistryTyped
 instance Scripts.ValidatorTypes RegistryTyped where
