@@ -30,40 +30,38 @@ import qualified Ledger.Typed.Scripts     as Scripts
 import           PlutusTx.Prelude         as P hiding (Semigroup (..), unless)
 import           Ledger                   hiding (singleton)
 
-data RegistryParams = RegistryParams
-    { mwlPubKey :: PubKeyHash
+data RegistryDatum = RegistryDatum
+    { creatorPubKey :: PubKeyHash
+    , creatorRoyalty :: !Integer
     }
-PlutusTx.makeLift ''RegistryParams
+
+PlutusTx.unstableMakeIsData ''RegistryDatum
 
 {-# INLINABLE registryValidator #-}
-registryValidator :: RegistryParams -> BuiltinData -> BuiltinData -> ScriptContext -> Bool
-registryValidator registry _ _ context = traceIfFalse "missing mwl pubkey" signedByMwl
+registryValidator :: RegistryDatum -> () -> ScriptContext -> Bool
+registryValidator dat () ctx = traceIfFalse "missing pubkey" signedByOwner
 
     where
       info :: TxInfo
-      info = scriptContextTxInfo context
-      
-      mwlSig :: PubKeyHash
-      mwlSig = mwlPubKey registry
+      info = scriptContextTxInfo ctx
 
-      signedByMwl :: Bool
-      signedByMwl = txSignedBy info $ mwlSig
+      signedByOwner :: Bool
+      signedByOwner = txSignedBy info $ creatorPubKey dat
 
-data Typed
-instance Scripts.ValidatorTypes Typed where
-    type instance DatumType    Typed = BuiltinData
-    type instance RedeemerType Typed = BuiltinData
+data RegistryTyped
+instance Scripts.ValidatorTypes RegistryTyped where
+    type instance DatumType RegistryTyped = RegistryDatum
+    type instance RedeemerType RegistryTyped = ()
 
-typedValidator :: RegistryParams -> Scripts.TypedValidator Typed
-typedValidator registry = Scripts.mkTypedValidator @Typed
-    ($$(PlutusTx.compile [|| registryValidator ||]) `PlutusTx.applyCode` PlutusTx.liftCode registry)
-    $$(PlutusTx.compile  [|| wrap        ||])
+typedValidator :: Scripts.TypedValidator RegistryTyped
+typedValidator = Scripts.mkTypedValidator @RegistryTyped
+    $$(PlutusTx.compile [|| registryValidator ||])
+    $$(PlutusTx.compile [|| wrap ||])
   where
-    wrap = Scripts.wrapValidator @BuiltinData @BuiltinData
+    wrap = Scripts.wrapValidator @RegistryDatum @()
 
 validator :: Plutus.Validator
-validator = Scripts.validatorScript (typedValidator registry)
-    where registry = RegistryParams { mwlPubKey = pubKeyHash "645b11c8bacc2c2df73a84a4fb7a68d5e4b186476a1fcf38cbcd5bfa" }
+validator = Scripts.validatorScript typedValidator
 
 script :: Plutus.Script
 script = Plutus.unValidatorScript validator
