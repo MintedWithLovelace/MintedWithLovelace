@@ -68,7 +68,7 @@ A secondary market can easily query the smartcontract address and compare the da
 
 If these conditions are true, the secondary market can extract the "rate" and the "addr" or list of "addr"s for royalty enforcement, even over a previously minted and locked policy, in a fully decentralized simple way.
 
-## Live Test / Proof of Concept
+## Testnet Proof of Concept
 
 I created the following test to demonstrate this. The scenario is we have a creator who has previously minted the token with Policy ID "4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039" named "MyNFT" at address addr_test1vpucvftxkp6h2p6rm7l6jq60630jlzhkewcnwzvtsvhecqqu6t472.
 Here is the minting tx: https://testnet.cardanoscan.io/transaction/b3725a03e8d0e448f6ce4186fe5c9ef2741d21df6b606be93e246560e6d7869d?tab=tokenmint
