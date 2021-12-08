@@ -196,4 +196,4 @@ This json file can be iterated over using offchain apps or scripts to compare th
 
 Using this method only the true owner of the policy is able to mint this Royalty Control targeting token in a successfully verifiable way. By using the same policy signing key used for the target policy id, the policy id of the Royalty Control token is able to be generated for validation of the keyHash. Both this Royalty Control token and the target policy id must share the same keyHash. The policy scripts for both this and the target policy are embedded into the metadata under their given headings ("self" for this Royalty Control token and the actual policy id of the target for it's section). There is no need to reuse the token and the Royalty Registry can be a simple "burn" or "always fail" script. The Datum must contain the hash of the target policy ID, for simple query by a secondary market for enforcement.
 
-This is a draft of a CIP I am working on.
+This is potentially going to be a CIP, however for now it's a solution I'll be implementing in the MintedWithLovelace dApp.
