@@ -13,7 +13,7 @@ This token has the following metadata structure:
 ```
 {
     "721": {
-        "___this-777-token-policy-ID___": {
+        "___this-Royalty-Control-token-policy-ID___": {
             "CRC": {
                 "self": {
                         "type": "all",
