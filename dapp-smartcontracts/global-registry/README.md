@@ -10,7 +10,8 @@ Creator mints a token for any given policy they want to set a royalty over ("tar
 
 This token has the following metadata structure:
 
-```{
+```
+{
     "721": {
         "___this-777-token-policy-ID___": {
             "777": {
@@ -49,7 +50,8 @@ This token has the following metadata structure:
             }
         }
     }
-}```
+}
+```
 
 The initial policy ID is this "777" named token (referencing it is a royalty setting token), of type 721. The first section "self" contains its own policy script data. After this initial "validation/comparison" self field, is the target policy section.  The target Policy ID also owned by the policy hash, and its individual policy script data, rate, and address (or address array per CIP-0027) is then set in this field for reference by secondary markets.
 
@@ -84,7 +86,8 @@ Secondary markets can then take the following steps to utilize this:
 2. The token's policy id is hashed appropriately like so `cardano-cli transaction hash-script-data --script-data-value '"{4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039}"'` which gives us "c4e697246a32d4e1bb75f0e089bbc5dc53783efab4e3278e37ed345fb158dde6". 
 
 3. The secondary market then takes this value and searches for a matching Datum at the Royalty Registry smartcontract via a simple UTXO query like so `cardano-cli query utxo --testnet-magic $TESTNET_MAGIC_NUM --address addr_test1wrkdjvvtglxsu6vuvzczrd8wpw66j6gtnmynyzn49vwef6s8hsf7l --out-file royalties.json` and has the following json file: 
-`{
+```
+{
     "2c954e752ccc6db2b9df28d54aefd27df0a6dd30d055751cd8656aeea3bfff0f#1": {
         "address": "addr_test1wrkdjvvtglxsu6vuvzczrd8wpw66j6gtnmynyzn49vwef6s8hsf7l",
         "datumhash": "c4e697246a32d4e1bb75f0e089bbc5dc53783efab4e3278e37ed345fb158dde6",
@@ -95,13 +98,15 @@ Secondary markets can then take the following steps to utilize this:
             "lovelace": 1689618
         }
     }
-}`
+}
+```
 This json file can be iterated over using offchain apps or scripts to compare the hashed version of the policy id in question against each UTXOs Datum value to find a match.
 
 4. In our example a match is found as seen in the "datumhash" value above. 
 
 5. With this match, the market extracts the metadata from the 777 token with the matching Datum and sees the following:
-`{
+```
+{
     "721": {
         "204598a01d0e5e8a2c61ddc8d9a56aa6d80dad6a8b1fddb8988bab52": {
             "777": {
@@ -140,7 +145,8 @@ This json file can be iterated over using offchain apps or scripts to compare th
             }
         }
     }
-}`
+}
+```
 
 6. From this data ownership/control over both the 777 token and the target policy are able to be easily validated, having matching keyHashes and with the given slot heights of each (the 777 itself and the target policy id). They are then able to extract the rate and payout address(s) from the field for the target policy ID.
 
