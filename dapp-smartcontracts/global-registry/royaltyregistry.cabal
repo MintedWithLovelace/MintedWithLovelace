@@ -1,11 +1,11 @@
 cabal-version: 2.4
 
-name:                   registry
+name:                   royaltyregistry
 version:                1.0
-description:            A plutus smartcontract registry of policy ids and associated royalties for mintedwithlovelace dapp primary market
-author:                 MadeWithLovelace
+description:            Registry for locking policy-id royalties
+author:                 MadeWithLovelace; MintedWithLovelace.com
 maintainer:             madewithlovelace@protonmail.com
-license:                Apache-2.0
+license:                AGPL-3.0-only
 build-type:             Simple
 
 Flag unexpected_thunks
@@ -40,7 +40,7 @@ library
 
   hs-source-dirs:       src
 
-  exposed-modules:      Registry
+  exposed-modules:      RoyaltyRegistry
 
   build-depends:        bytestring
                       , cardano-api
@@ -54,14 +54,14 @@ library
 
   ghc-options: -fobject-code -fno-ignore-interface-pragmas -fno-omit-interface-pragmas
 
-executable registry
+executable royaltyregistry
   import:               base, project-config
   hs-source-dirs:       app
-  main-is:              registry.hs
+  main-is:              royaltyregistry.hs
   ghc-options:          -threaded -rtsopts "-with-rtsopts=-T"
 
   build-depends:        cardano-api
                       , cardano-ledger-alonzo
-                      , registry
+                      , royaltyregistry
                       , plutus-ledger-api
                       , bytestring
