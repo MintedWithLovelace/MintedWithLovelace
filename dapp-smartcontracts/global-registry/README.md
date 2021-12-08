@@ -62,11 +62,15 @@ This "burns"/locks the 777 token with it's target policy ID embedded in the Datu
 
 A secondary market can easily query the smartcontract address and compare the datums of the utxos, using a valid hash of the policy ID in question. When it finds a match, it simply compares the following:
 
-1. Does the "self" policy script data within the 777 metadata generate the same policy id as itself?
-2. Does the policy script data provided for the target policy within the 777 metadata generate the same policy id as itself?
+1. Does the policy script data within the 777 metadata (under tag "self") generate the same policy id as the token itself (the policy ID of the 777 token)?
+2. Does the policy script data provided for the target policy (under tag = target policyID) within the 777 metadata generate the same policy id as we expect/itself/it's tag name/the datum unhashed?
 3. Do the keyHashes match (did the same policy wallet create the target and THIS token)?
 
 If these conditions are true, the secondary market can extract the "rate" and the "addr" or list of "addr"s for royalty enforcement, even over a previously minted and locked policy, in a fully decentralized simple way.
+
+Because we are verifying that the keyHashes of both *this* royalty setting token with name "777" and our target policy id over which we wish to set the royalties match, we can then simply calculate the policy id from each of these embedded policy scripts and validate that the "self" one is equal to the actual 777 token's own policy ID and that the target one identified by it's expected policy id, truly calculates as such. 
+
+Someone trying to "fake" a royalty setting token by simply minting with the metadata as outlined above, would fail this validation process as their minted token would not have a policy ID generated from the "self" script data (keyhash and height in our above example). This would prove they are not the owner of the target policy and do not have the right to set royalty over it.
 
 ## Testnet Proof of Concept
 
@@ -167,10 +171,12 @@ This json file can be iterated over using offchain apps or scripts to compare th
 }
 ```
 
-6. From this data ownership/control over both the 777 token and the target policy are able to be easily validated, having matching keyHashes and with the given slot heights of each (the 777 itself and the target policy id). They are then able to extract the rate and payout address(s) from the field for the target policy ID.
+6. From this data ownership/control over both the 777 token and the target policy are able to be easily validated, having matching keyHashes and with the given slot heights of each (the 777 itself and the target policy id). The key element to this validation is processing the script data from "self" to generate a policy id, then compare this to this royalty token named 777 and it must match. If all matches up, ownership has been proven and they are then able to extract the rate and payout address(s) from the field for the target policy ID.
 
 ## Notes
 
 Using this method only the true owner of the policy is able to mint this 777 targeting token. By using the same policy wallet used for the target policy id, the policy id of the 777 token is able to be generated for validation of the keyHash. Both this 777 token and the target policy id must share the same keyHash. The policy scripts for both this and the target policy are embedded into the metadata under their given headings ("self" for this 77 token and the actual policy id of the target for it's section). There is no need to reuse the token and the Royalty Registry can be a simple "burn" or "always fail" script. The Datum must contain the hash of the target policy ID, for simple query by a secondary market for enforcement.
 
 This could also be potentially used as an override to any rates set individually during minting of any given policy, as it allows for use with a new/planned or locked policy ID.
+
+Maybe naming the token "777" is confusing given that it is a top level tag? The idea behind this naming is to reference the purpose of this token outside the constraints of the original CIP-0027.
