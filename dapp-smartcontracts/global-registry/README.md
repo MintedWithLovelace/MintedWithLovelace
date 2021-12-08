@@ -14,7 +14,7 @@ This token has the following metadata structure:
 {
     "721": {
         "___this-777-token-policy-ID___": {
-            "777": {
+            "CRC": {
                 "self": {
                         "type": "all",
                         "scripts": [
@@ -62,9 +62,9 @@ This "burns"/locks the Royalty Control token with it's target policy ID embedded
 
 A secondary market can easily query the smartcontract address and compare the datums of the utxos, using a valid hash of the policy ID in question. When it finds a match, it simply compares the following:
 
-1. Does the policy script data within the 777 metadata (under tag "self") generate the same policy id as the token itself (the policy ID of the 777 token)?
-2. Does the policy script data provided for the target policy (under tag = target policyID) within the 777 metadata generate the same policy id as we expect/itself/it's tag name/the datum unhashed?
-3. Do the keyHashes match (did the same policy wallet create the target and THIS token)?
+1. Does the policy script data within the Royalty Control metadata (under tag "self") generate the same policy id as the token itself (the policy ID of the Royalty Control token)?
+2. Does the policy script data provided for the target policy (under tag = target policyID) within the Royalty Control metadata generate the same policy id as we expect/itself/it's tag name/the datum unhashed?
+3. Do the keyHashes match (did the same policy skey create the target and THIS token)?
 
 If these conditions are true, the secondary market can extract the "rate" and the "addr" or list of "addr"s for royalty enforcement, even over a previously minted and locked policy, in a fully decentralized simple way.
 
