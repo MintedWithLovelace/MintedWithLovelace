@@ -10,7 +10,7 @@ Creator mints a token for any given policy they want to set a royalty over ("tar
 
 This token has the following metadata structure:
 
-``{
+```{
     "721": {
         "___this-777-token-policy-ID___": {
             "777": {
@@ -49,7 +49,7 @@ This token has the following metadata structure:
             }
         }
     }
-}``
+}```
 
 The initial policy ID is this "777" named token (referencing it is a royalty setting token), of type 721. The first section "self" contains its own policy script data. After this initial "validation/comparison" self field, is the target policy section.  The target Policy ID also owned by the policy hash, and its individual policy script data, rate, and address (or address array per CIP-0027) is then set in this field for reference by secondary markets.
 
