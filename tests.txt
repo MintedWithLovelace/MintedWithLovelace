@@ -1,0 +1,48 @@
+Official Smartcontract Tests
+
+For get hash of value: cardano-cli transaction hash-script-data --script-data-value '["3ce1a4b2b3f92f680a6bd44f5fb86caca194c1593330dcad20f1dac4",10]'
+
+For deposit into SC:
+cardano-cli transaction build --alonzo-era --cardano-mode --testnet-magic $TESTNET_MAGIC_NUM --protocol-params-file trash_staging/standardSwap/profiles/standard/cache/protocol.json --change-address addr_test1vq7wrf9jk0uj76q2d02y7hacdjk2r9xptyenph9dyrca43qgzkw5v --invalid-hereafter 43793505 --out-file testSC.draft --tx-in 582553aaf89c6e79125fdb3e80887f4d62c6f44c4a785c52d4ddcce72efe4425#0 --tx-in-collateral 582553aaf89c6e79125fdb3e80887f4d62c6f44c4a785c52d4ddcce72efe4425#1 --tx-out "addr_test1wz42fs9wfannlga74q89knah80h6ts96v290w3pahl95q2sya0wkh+2000000" --tx-out-datum-hash-value '["3ce1a4b2b3f92f680a6bd44f5fb86caca194c1593330dcad20f1dac4",10,"policyID","payToAddress"]'
+
+For update:
+cardano-cli transaction build \
+    --alonzo-era \
+    --cardano-mode \
+    --testnet-magic $TESTNET_MAGIC_NUM \
+    --protocol-params-file trash_staging/standardSwap/profiles/standard/cache/protocol.json \
+    --change-address addr_test1vq7wrf9jk0uj76q2d02y7hacdjk2r9xptyenph9dyrca43qgzkw5v \
+    --invalid-hereafter 43793505 \
+    --out-file testSC.draft \
+    --tx-in 1bc31506870d7a2de4d38f2d4f2e2874110317d4451c38b4fd4ef350070bc7ec#1 \
+    --tx-datum-value '["policy_hash_wallets_public_keyhash",10,"policyID","payToAddress"]' \
+    --tx-redeemer-value '""' \
+    --tx-script-file path \
+    --tx-out "sc_payTo_address+2000000" \
+    --tx-out-datum-hash-value '["3ce1a4b2b3f92f680a6bd44f5fb86caca194c1593330dcad20f1dac4",15,"policyID","payToAddress"]'
+
+
+how to prove ownership of policyID on-chain??
+    Use internal NFT validation.
+    New project - what if we mint an access token at the smartcontract which knows the policy ID of the access token which is the same policy id for the collection. this nft policy id is known at the utxo as it's the name of the token. the datum policy id must validate against this token name/policy id 
+
+    nft has basic meta includes the policy id originating wallet? logo maybe? nameing: policy_id.minted <-- todo: check name is not overused
+
+
+
+
+    cardano-cli transaction build \
+    --alonzo-era \
+    --testnet-magic $TESTNET_MAGIC_NUM \
+    --protocol-params-file trash_staging/standardSwap/profiles/standard/cache/protocol.json \
+    --invalid-hereafter 44118764 \
+    --tx-in b35e1019504a2eafc820b7a81f20cbc1cfa716c5e4f2a5d204e6ae626dd8e2d0#0 \
+    --tx-in b35e1019504a2eafc820b7a81f20cbc1cfa716c5e4f2a5d204e6ae626dd8e2d0#2 \
+    --tx-in-datum-value '["ca350a4cc0fac2e592c3821cd3127f6d1e98e99e5d841689eeccff7d","14a2ad252f489f219317982b8823115251e82446496bc95290e24d7f","TUDE",5]' \
+    --tx-in-redeemer-file muesli_validate/redeemer.json \
+    --tx-in-script-file order_validator_v1.1.plutus \
+    --tx-in-collateral 4030097f4074080ea58616e890f8aaea29cef0e131df513a3ec551edd33c7de1#0 \
+    --change-address addr_test1vr9r2zjvcrav9evjcwppe5cj0ak3ax8fnewcg95famx07lgnsq25p \
+    --tx-out "addr_test1vr9r2zjvcrav9evjcwppe5cj0ak3ax8fnewcg95famx07lgnsq25p+2000000+50 14a2ad252f489f219317982b8823115251e82446496bc95290e24d7f.TUDE" \
+    --tx-out-datum-hash c49539d69cd1dded218cffaec27cc7589a4b9c954a76efb538fc6266c818b7ee \
+    --out-file tx.raw

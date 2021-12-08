@@ -5,16 +5,16 @@ import           Cardano.Api.Shelley
 import qualified Cardano.Ledger.Alonzo.Data as Alonzo
 import qualified Plutus.V1.Ledger.Api as Plutus
 import qualified Data.ByteString.Short as SBS
-import           Registry (registryScript, registryScriptShortBs)
+import           RoyaltyRegistry (valSerialised, valSBS)
 
 main :: IO ()
 main = do
   args <- getArgs
   let nargs = length args
   let scriptnum = if nargs > 0 then read (args!!0) else 420
-  let scriptname = if nargs > 1 then args!!1 else  "mwlregistry-1.0.plutus"
+  let scriptname = if nargs > 1 then args!!1 else  "royaltyregistry.plutus"
   putStrLn $ "OUTPUT: " ++ scriptname
-  writePlutusScript scriptnum scriptname registryScript registryScriptShortBs
+  writePlutusScript scriptnum scriptname valSerialised valSBS
 
 writePlutusScript :: Integer -> FilePath -> PlutusScript PlutusScriptV1 -> SBS.ShortByteString -> IO ()
 writePlutusScript scriptnum filename scriptSerial scriptSBS =
