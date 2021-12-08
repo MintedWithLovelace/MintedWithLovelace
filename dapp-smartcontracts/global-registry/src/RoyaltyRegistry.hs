@@ -31,13 +31,13 @@ import           Ledger                   hiding (singleton)
 
 {-# INLINABLE registryValidator #-}
 registryValidator :: BuiltinData -> BuiltinData -> BuiltinData -> ()
-registryValidator _ _ _ = traceError "Royalty Immutably Registered"
+registryValidator _ _ _ = traceError "Registration is permanent"
 
-validator :: Scripts.Validator
-validator = mkValidatorScript $$(PlutusTx.compile [|| registryValidator ||])
+scriptValidator :: Scripts.Validator
+scriptValidator = mkValidatorScript $$(PlutusTx.compile [|| registryValidator ||])
 
 valScript :: Plutus.Script
-valScript = Plutus.unValidatorScript validator
+valScript = Plutus.unValidatorScript scriptValidator
 
 valSBS :: SBS.ShortByteString
 valSBS = SBS.toShort . LBS.toStrict $ serialise valScript
