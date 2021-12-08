@@ -53,6 +53,9 @@ This token has the following metadata structure:
 }
 ```
 
+*Note: I'm aware that 777 is a top level, in this solution I'm suggesting using 777 as just the token name as a "friendly" reference that this is a token related to royalty setting. I think making it of type 777 would not work in this solution as it would be expected to have different structure. In this solution we need a more complex metadata structure to contain this tokens' policy script data and the target policy script data and royalty data as well.  So all reference to 777 throughout this document is referencing the Name of this token, not the type.*
+
+
 The initial policy ID is this "777" named token (referencing it is a royalty setting token), of type 721. The first section "self" contains its own policy script data. After this initial "validation/comparison" self field, is the target policy section.  The target Policy ID also owned by the policy hash, and its individual policy script data, rate, and address (or address array per CIP-0027) is then set in this field for reference by secondary markets.
 
 After minting the 777 token, the creator sends this token to a global "Royalty Registry" smartcontract. This is a simple burn contract which locks the token forever.  In this locking transaction, the creator must hash the target policy ID in the proper format:
