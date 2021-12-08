@@ -55,7 +55,10 @@ This token has the following metadata structure:
 
 The initial policy ID is this "777" named token (referencing it is a royalty setting token), of type 721. The first section "self" contains its own policy script data. After this initial "validation/comparison" self field, is the target policy section.  The target Policy ID also owned by the policy hash, and its individual policy script data, rate, and address (or address array per CIP-0027) is then set in this field for reference by secondary markets.
 
-After minting the 777 token, the creator sends this token to a global "Royalty Registry" smartcontract. This is a simple burn contract which locks the token forever.  In this locking transaction, the creator must hash the target policy ID in the proper format: `cardano-cli transaction hash-script-data --script-data-value '"{4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039}"'`. This "burns"/locks the 777 token with it's target policy ID embedded in the Datum at the Royalty Registry smartcontract for markets to query.
+After minting the 777 token, the creator sends this token to a global "Royalty Registry" smartcontract. This is a simple burn contract which locks the token forever.  In this locking transaction, the creator must hash the target policy ID in the proper format:
+`cardano-cli transaction hash-script-data --script-data-value '"{4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039}"'`
+
+This "burns"/locks the 777 token with it's target policy ID embedded in the Datum at the Royalty Registry smartcontract for markets to query.
 
 A secondary market can easily query the smartcontract address and compare the datums of the utxos, using a valid hash of the policy ID in question. When it finds a match, it simply compares the following:
 
@@ -67,25 +70,41 @@ If these conditions are true, the secondary market can extract the "rate" and th
 
 ## Live Test / Proof of Concept
 
-I created the following test to demonstrate this. The scenario is we have a creator who has previously minted the token with Policy ID "4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039" named "MyNFT" at address addr_test1vpucvftxkp6h2p6rm7l6jq60630jlzhkewcnwzvtsvhecqqu6t472. Here is their minting tx: https://testnet.cardanoscan.io/transaction/b3725a03e8d0e448f6ce4186fe5c9ef2741d21df6b606be93e246560e6d7869d?tab=tokenmint
+I created the following test to demonstrate this. The scenario is we have a creator who has previously minted the token with Policy ID "4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039" named "MyNFT" at address addr_test1vpucvftxkp6h2p6rm7l6jq60630jlzhkewcnwzvtsvhecqqu6t472.
+Here is the minting tx: https://testnet.cardanoscan.io/transaction/b3725a03e8d0e448f6ce4186fe5c9ef2741d21df6b606be93e246560e6d7869d?tab=tokenmint
 
-This creator wants to set royalties for this now-locked policy and can take the following steps to implement this method:
+
+**This creator wants to set royalties for this now-locked policy and can take the following steps to implement this method:**
 
 1. Mint the 777 token according to above specs, to addr_test1vqq4sm3xdgdzreyg6zzyz7cw73ndd2vxm33gt469g4gsqfsvaa2v5
-    - minting tx showing metadata: https://testnet.cardanoscan.io/transaction/83410575a91c90fe6c70a6f5c30d30e3cbd60d50ee92114c65b1d2bcf8954e38?tab=metadata
+    - resultant minting tx w/ metadata: https://testnet.cardanoscan.io/transaction/83410575a91c90fe6c70a6f5c30d30e3cbd60d50ee92114c65b1d2bcf8954e38?tab=metadata
 
-2. Compile the RoyaltyRegistry herein to 'royaltyregistry.plutus' and extract the smartcontract address with `cardano-cli address build --testnet-magic $TESTNET_MAGIC_NUM --payment-script-file royaltyregistry.plutus` = addr_test1wrkdjvvtglxsu6vuvzczrd8wpw66j6gtnmynyzn49vwef6s8hsf7l
+2. Compile the RoyaltyRegistry herein to 'royaltyregistry.plutus' and extract the smartcontract address with:
+`cardano-cli address build --testnet-magic $TESTNET_MAGIC_NUM --payment-script-file royaltyregistry.plutus` gives us addr_test1wrkdjvvtglxsu6vuvzczrd8wpw66j6gtnmynyzn49vwef6s8hsf7l as the smartcontract address.
 
-3. Lock the 777 token at the Royalty Registry smartcontract with the target policy (4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039) hashed properly (resulting in c4e697246a32d4e1bb75f0e089bbc5dc53783efab4e3278e37ed345fb158dde6) into the Datum with `cardano-cli transaction build --tx-in 83410575a91c90fe6c70a6f5c30d30e3cbd60d50ee92114c65b1d2bcf8954e38#0 --tx-in 83410575a91c90fe6c70a6f5c30d30e3cbd60d50ee92114c65b1d2bcf8954e38#1 --tx-out addr_test1wrkdjvvtglxsu6vuvzczrd8wpw66j6gtnmynyzn49vwef6s8hsf7l+1689618+"1 204598a01d0e5e8a2c61ddc8d9a56aa6d80dad6a8b1fddb8988bab52.777" --tx-out-datum-hash-value '"{4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039}"' --change-address=addr_test1vqq4sm3xdgdzreyg6zzyz7cw73ndd2vxm33gt469g4gsqfsvaa2v5 --testnet-magic $TESTNET_MAGIC_NUM --out-file tx.build --alonzo-era`
-    - locking tx: https://testnet.cardanoscan.io/transaction/2c954e752ccc6db2b9df28d54aefd27df0a6dd30d055751cd8656aeea3bfff0f
+3. Lock the 777 token at the Royalty Registry smartcontract with the target policy (4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039) hashed properly (resulting in c4e697246a32d4e1bb75f0e089bbc5dc53783efab4e3278e37ed345fb158dde6) into the Datum with:
+```
+cardano-cli transaction build \
+--tx-in 83410575a91c90fe6c70a6f5c30d30e3cbd60d50ee92114c65b1d2bcf8954e38#0 \
+--tx-in 83410575a91c90fe6c70a6f5c30d30e3cbd60d50ee92114c65b1d2bcf8954e38#1 \
+--tx-out addr_test1wrkdjvvtglxsu6vuvzczrd8wpw66j6gtnmynyzn49vwef6s8hsf7l+1689618+"1 204598a01d0e5e8a2c61ddc8d9a56aa6d80dad6a8b1fddb8988bab52.777" \
+--tx-out-datum-hash-value '"{4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039}"' \
+--change-address=addr_test1vqq4sm3xdgdzreyg6zzyz7cw73ndd2vxm33gt469g4gsqfsvaa2v5 \
+--testnet-magic $TESTNET_MAGIC_NUM \
+--out-file tx.build --alonzo-era
+```
+    - the resultant locking tx: https://testnet.cardanoscan.io/transaction/2c954e752ccc6db2b9df28d54aefd27df0a6dd30d055751cd8656aeea3bfff0f
 
-Secondary markets can then take the following steps to utilize this:
+
+**Secondary markets can then take the following steps to utilize this:**
 
 1. A secondary market has token 4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039.MyNFT come up for sale. They attempt to find a minting from the procedure laid out in CIP-0027 and none is found. The next place to look on-chain is the global Royalty Registry smartcontract. 
 
-2. The token's policy id is hashed appropriately like so `cardano-cli transaction hash-script-data --script-data-value '"{4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039}"'` which gives us "c4e697246a32d4e1bb75f0e089bbc5dc53783efab4e3278e37ed345fb158dde6". 
+2. The token's policy id is hashed appropriately like so:
+`cardano-cli transaction hash-script-data --script-data-value '"{4316059167b8bbc46c84d2aec144ed469f83db85ad64f139d3c33039}"'` which gives us "c4e697246a32d4e1bb75f0e089bbc5dc53783efab4e3278e37ed345fb158dde6". 
 
-3. The secondary market then takes this value and searches for a matching Datum at the Royalty Registry smartcontract via a simple UTXO query like so `cardano-cli query utxo --testnet-magic $TESTNET_MAGIC_NUM --address addr_test1wrkdjvvtglxsu6vuvzczrd8wpw66j6gtnmynyzn49vwef6s8hsf7l --out-file royalties.json` and has the following json file: 
+3. The secondary market then takes this value and searches for a matching Datum at the Royalty Registry smartcontract via a simple UTXO query like so:
+`cardano-cli query utxo --testnet-magic $TESTNET_MAGIC_NUM --address addr_test1wrkdjvvtglxsu6vuvzczrd8wpw66j6gtnmynyzn49vwef6s8hsf7l --out-file royalties.json` and has the following json file: 
 ```
 {
     "2c954e752ccc6db2b9df28d54aefd27df0a6dd30d055751cd8656aeea3bfff0f#1": {
