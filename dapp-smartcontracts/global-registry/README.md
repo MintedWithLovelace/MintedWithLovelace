@@ -1,4 +1,4 @@
-# MintedWithLovelace Global Royalty Regitry
+# MintedWithLovelace Global Royalty Registry
 
 ## General Idea
 
