@@ -10,7 +10,13 @@ To remain consistent and satisfy the parameters being employed by CIP-0027, it m
 
 In this implementation design, the 777 token contains all the same metadata as the CIP-0027 plus additional as outlined below (with the modifications needed from CIP-0027 which are not in the example below yet).
 
-## Proposed Solution
+For reference, the CIP this merge will apply to is: https://github.com/cardano-foundation/CIPs/tree/master/CIP-0027
+
+## Original Metadata per CIP-0027
+
+{ "777": { "rate": "0.2", "addr": "addr1v9nevxg9wunfck0gt7hpxuy0elnqygglme3u6l3nn5q5gnq5dc9un" } }
+
+## Proposed Solution and New Metadata Structure per this merge
 
 Creator mints a token for any given policy they want to set a royalty over ("target policy"), from the same policy wallet used to mint the target policy.
 
@@ -18,44 +24,36 @@ This token has the following metadata structure:
 
 ```
 {
-    "721": {
-        "___this-Royalty-Control-token-policy-ID___": {
-            "CRC": {
-                "self": {
-                        "type": "all",
-                        "scripts": [
-                          {
-                            "keyHash": "___owner-keyHash___",
-                            "type": "sig"
-                          },
-                          {
-                            "type": "before",
-                            "slot": "this-locking-slot-height"
-                          }
-                        ]
+    "777": {
+        "self": {
+            "type": "all",
+            "scripts": [
+                {
+                    "keyHash": "___owner-keyHash___",
+                    "type": "sig"
                 },
-                "___target-Policy-ID___": [
-                  {
-                    "script": {
-                        "type": "all",
-                        "scripts": [
-                          {
-                            "keyHash": "___owner-keyHash___",
-                            "type": "sig"
-                          },
-                          {
-                            "type": "before",
-                            "slot": "target-policyid-locking-slot-height"
-                          }
-                        ]
+                {
+                    "type": "before",
+                    "slot": "this-locking-slot-height"
+                }
+            ]
+        },
+        "___target-Policy-ID-Or-Own-If-Applies-To-Self___": {
+                "type": "all",
+                "scripts": [
+                    {
+                        "keyHash": "___owner-keyHash___",
+                        "type": "sig"
                     },
-                    "rate": "percentage (e.g. 0.1)",
-                    "addr": "addr_payout_address",
-                    "controlslot": "_slot_height_at_time_of_this_token_minting_"
-                  }
+                    {
+                        "type": "before",
+                        "slot": "target-policyid-locking-slot-height"
+                    }
                 ]
-            }
-        }
+        },
+        "rate": "percentage (e.g. 0.1)",
+        "addr": "addr_payout_address",
+        "controlslot": "_slot_height_at_time_of_this_token_minting_"
     }
 }
 ```
@@ -210,4 +208,4 @@ Another thought is this: Say a creator sets a reasonable % and then goes rogue. 
 
 Again, what is gained in this is inclusion of anyone past, present, future who was ignorant or had someone helping them who didn't know how or if about setting royalties etc...allows flexibility in their rollout for new projects...and very crucially allows for modification of the payout addresses. All while maintaining decentralized/onchain.
 
-This is potentially going to be a CIP, however for now it's a solution I'll be implementing in the MintedWithLovelace dApp.
+This is potentially going to be a CIP, however for now it's a solution I'll be implementing in the MintedWithLovelace dApp. By combining the approach from cip-0027 with this expanded data, we gain the ability to register policy scripts onchain, manage payout addresses better, and set royalty over policy ids an artist may have inadvertedly not setup royalty for properly in the first place.
