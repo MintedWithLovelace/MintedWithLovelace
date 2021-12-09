@@ -4,6 +4,12 @@
 
 Give creators a decentralized/on-chain solution for setting royalties over asset policies, regardless if any 777 token was minted/exists for the given policy and regardless if the policy is now locked and unable to set a standardized policy royalty token.
 
+## Update - Optional Merge
+
+To remain consistent and satisfy the parameters being employed by CIP-0027, it may be a reasonable approach to merge these two into a single implementation. The caveat would be the 777 token, if found with additional metadata particularly the "self" section, would be an indicator that this particular 777 also contains additional metadata possibly pertaining to a different (but provably owned) policy ID.
+
+In this implementation design, the 777 token contains all the same metadata as the CIP-0027 plus additional as outlined below (with the modifications needed from CIP-0027 which are not in the example below yet).
+
 ## Proposed Solution
 
 Creator mints a token for any given policy they want to set a royalty over ("target policy"), from the same policy wallet used to mint the target policy.
