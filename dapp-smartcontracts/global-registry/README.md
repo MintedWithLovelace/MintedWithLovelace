@@ -1,10 +1,10 @@
-# MintedWithLovelace Global Royalty Registry
+# Global Royalty Registry & e777 Tokens
 
 ## General Idea
 
 Give creators a decentralized/on-chain solution for setting royalties over asset policies, regardless if any 777 token was minted/exists for the given policy and regardless if the policy is now locked and unable to set a standardized policy royalty token.
 
-By utilizing a more expanded metadata to include our single policy keyhash and the locking slot height for this minted 777 token and a target policy we wish to prove ownership over and control royalty for, we are able to prove that because our 777's policy was derived from the embedded policy script and our target was also derived provably from it's policy script embedded in this metadata for review...and because both used the same keyhash, the same keyhash was the one which minted BOTH this 777 and our target.  Therefore we are the owner and have proven we control the policy skey file, and therefore hold the rights to set royalty settings over the target.  From a "proof" standpoint, it's basic algebra: If A derived B and if A derived C, then the creator of B is also the creator of C.
+By utilizing a more expanded metadata in a 777 token ("e777"), to include our single policy keyhash and the locking slot height for this minted 777 token and a target policy we wish to prove ownership over and control royalty for, we are able to prove that because our 777's policy was derived from the embedded policy script and our target was also derived provably from it's policy script embedded in this metadata for review...and because both used the same keyhash, the same keyhash was the one which minted BOTH this 777 and our target.  Therefore we are the owner and have proven we control the policy skey file, and therefore hold the rights to set royalty settings over the target.  From a "proof" standpoint, it's basic algebra: If A derived B and if A derived C, then the creator of B is also the creator of C.
 
 ## Update - Optional Merge
 
