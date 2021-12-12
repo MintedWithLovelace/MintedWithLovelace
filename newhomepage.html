@@ -195,7 +195,7 @@
         display: block;
         font-size: 12px;
         color: #d7d7d7;
-        top: -10px;
+        top: -1px;
       }
       .banner:after {
         content:"";
@@ -208,7 +208,7 @@
         z-index: 1;
         font-size: 12px;
         color: #d7d7d7;
-        top: -10px;
+        top: -1px;
       }
       .left.banner {
         text-align: left;
@@ -232,12 +232,12 @@
       }
       .right.banner:before {
         content:"";
-        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
         right: 0;
       }
       .right.banner:after {
         content:"";
-        transform: rotateZ(-2deg);
+        transform: rotateZ(2deg);
         right: -4px;
       }
       .banner-title {
@@ -266,11 +266,11 @@
         color: #eaf;
         transition: 0.3s all;
       }
-      .card:hover .left.banner {
+      .card:hover .left.banner-title {
         box-shadow: 3px 0 6px -3px #162f33;
         transition: 0.3s all;
       }
-      .card:hover .right.banner {
+      .card:hover .right.banner-title {
         box-shadow: -3px 0 6px -3px #162f33;
         transition: 0.3s all;
       }
