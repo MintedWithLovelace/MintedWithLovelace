@@ -202,6 +202,7 @@
         z-index: 1;
         font-size: 12px;
         color: #d7d7d7;
+        top: -9px;
       }
       .banner:after {
         content:"";
@@ -215,6 +216,7 @@
         display: block;
         font-size: 12px;
         color: #d7d7d7;
+        top: -10px;
       }
       .banner-l {
         text-align: left;
@@ -224,17 +226,27 @@
       .banner-l:before {
         content:"";
         transform: rotateZ(-2deg);
-        left: -53px;
+        left: -5px;
       }
       .banner-l:after {
         content:"";
         border-left: 8px solid transparent;
-        left: -48px;
+        left: 0;
       }
       .banner-r {
         text-align: right;
         padding-right: 31px;
         right: -48px;
+      }
+      .banner-r:before {
+        content:"";
+        transform: rotateZ(-2deg);
+        right: -5px;
+      }
+      .banner-r:after {
+        content:"";
+        border-left: 8px solid transparent;
+        right: 0;
       }
       .card:hover .banner {
         color: #eaf;
