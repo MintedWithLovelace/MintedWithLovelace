@@ -176,10 +176,9 @@
         right: -48px;
       }
       .banner {
-        background-color: #559c9e;
         height: 40px;
         display: block;
-        width: 65%;
+        width: 70%;
         margin-bottom: 10px;
         margin-top: 9px;
         z-index: 3;
@@ -247,13 +246,15 @@
       .banner-title {
         display: block;
         height: 40px;
-        margin: 10px 0;
         color: #393939;
         font-weight: bold;
         font-size: 34px;
         font-family: sans;
-        width: 100%;
+        width: 70%;
         margin: 9px 0 0;
+        background-color: #559c9e;
+        z-index:3;
+        transition: 0.3s all;
       }
       .left.banner-title {
         margin-left: -48px;
@@ -263,14 +264,15 @@
         margin-right: -48px;
         padding-right: 33px;
       }
-      .card:hover .banner {
+      .card:hover .banner-title {
         color: #eaf;
+        transition: 0.3s all;
       }
-      .card:hover .banner-l {
+      .card:hover .left.banner {
         box-shadow: 3px 0 6px -3px #162f33;
         transition: 0.3s all;
       }
-      .card:hover .banner-r {
+      .card:hover .right.banner {
         box-shadow: -3px 0 6px -3px #162f33;
         transition: 0.3s all;
       }
