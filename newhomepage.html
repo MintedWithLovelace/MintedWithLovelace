@@ -92,6 +92,8 @@
             margin-top: 9px;
             z-index: 3;
             position: absolute;
+            box-shadow: unset;
+            transition: 0.3s all;
         }
         .banner-l {
             text-align: left;
@@ -102,6 +104,10 @@
             text-align: right;
             padding-right: 47px;
             right: -48px;
+        }
+        .card:hover .banner {
+            box-shadow: 0 0 6px -3px #162f33;
+            transition: 0.3s all;
         }
         .banner-space {
             display: block;
@@ -326,34 +332,6 @@
               <span class="description">Monitors a given Cardano address for all transactions, logging the date, sender address, amount.</span>
             </div>
           </section>
-        </pre>
-        <pre style="font-size:22px;text-align:center;color:#40ffef;margin:40px 0 0 0;">MintedWithLovelace Roadmap</pre>
-        <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;text-align:center;">Following is a rough draft of our roadmap</pre>
-        <pre>          <div style="display: block;max-width: 600px;margin: 0 auto;color: #fff;background-color: #6a6a6a;border-radius: 20px;padding: 40px;list-style-type: square;">
-            <span style="font-size:14px;text-align:center;text-decoration: underline;line-height: 28px;">Beta - Launching Spring 2022</span>
-            <span>Full-fledged Decentralized SmartContract-Driven Secondary Market
-              <span>Sell NFTs in MintedWithLovelace fully decentralized secondary market, with royalties built-in. Browse and buy, list and sell.</span>
-            </span>
-            <span>Improved Primary Market/NFT Launchpad
-              <span>Along with the above changes, more options, flexibility, and in-app action support will be included for launching a project or just minting a single NFT or launching a coin. These include improved attribute prep, image prep and support, HTML customization, demo/test runs, and a lot more.</span>
-            </span>
-            <span>Manage royalties
-              <span>Creators can update royalty payment settings. SmartContract secured.</span>
-            </span>
-            <span>A GUI!
-              <span>Say goodbye to cli. We are building graphical user interface!</span>
-            </span>
-            <span>Improved Device Support
-              <span>We will strive for full desktop and mobile support!</span>
-            </span>
-            <span>Lite-mode
-              <span>While we strive to be totally decentralized, practically there are many who would like to use the dApp without running a full node. In addition, for the mobile apps we'll need to implement off-device nodes.</span>
-            </span>
-            <span>MintedWithLovelace Token
-              <span>An important part of the ecosystem and functionality of this dApp is the integration and use of a dedicated native token.</span>
-            </span>
-            <span>A few more surprise features as well! &lt;3 </span>
-          </div>
         </pre>
       </section>
       <footer style="display: block;width: 100%;text-align: center;">
