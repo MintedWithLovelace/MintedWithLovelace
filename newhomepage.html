@@ -191,9 +191,44 @@
         box-shadow: unset;
         transition: 0.3s all;
       }
+      .banner:before {
+        content:"";
+        position: absolute;
+        background-color: #559c9e;
+        height: 40px;
+        width: 13px;
+        display: block;
+        margin: 0;
+        z-index: 1;
+        font-size: 12px;
+        color: #d7d7d7;
+      }
+      .banner:after {
+        content:"";
+        position: absolute;
+        margin: 0;
+        width: 0;
+        height: 0;
+        border-top: 0 solid transparent;
+        border-bottom: 14px solid #eaf;
+        z-index: 2;
+        display: block;
+        font-size: 12px;
+        color: #d7d7d7;
+      }
       .banner-l {
         text-align: left;
         padding-left: 33px;
+        left: -48px;
+      }
+      .banner-l:before {
+        content:"";
+        transform: rotateZ(-2deg);
+        left: -53px;
+      }
+      .banner-l:after {
+        content:"";
+        border-left: 8px solid transparent;
         left: -48px;
       }
       .banner-r {
@@ -284,8 +319,6 @@
       <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;">Following is a feature list for the Alpha release of MintedWithLovelace, a Cardano dApp to be released this coming December 2021. To see what additional features are in development, keep an eye out for our roadmap which we'll publish soon.</pre>
       <section class="cards">
         <div class="card">
-          <span class="banner-edge banner-edge-l"></span>
-          <span class="banner-corner banner-corner-l"></span>
           <span class="banner banner-l">Mint On-Demand</span>
           <span class="banner-space"></span>
           <span class="description l">Run a fully automated mint-on-demand NFT sale (or auction) directly from your computer and with full ownership over the wallet/keys. When anyone sends the specified amount, one of your NFTs will mint immediately at their address. You can even add tx-related data to the metadata on-the-fly, such as the buyers address embedded into html or attribute.  Most of the following features are related to this broad feature.</span>
