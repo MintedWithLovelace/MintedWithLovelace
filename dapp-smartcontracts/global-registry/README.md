@@ -18,7 +18,7 @@ For reference, the CIP this merge will apply to is: https://github.com/cardano-f
 
 { "777": { "rate": "0.2", "addr": "addr1v9nevxg9wunfck0gt7hpxuy0elnqygglme3u6l3nn5q5gnq5dc9un" } }
 
-## Proposed Solution and New Metadata Structure for e777
+## Proposed Metadata for e777
 
 Creator mints a token for any given policy they want to set a royalty over ("target policy"), from the same policy wallet used to mint the target policy.
 
@@ -59,6 +59,8 @@ This token has the following metadata structure:
     }
 }
 ```
+## Solution Details
+
 The first section "self" contains its own policy script data. After this initial "validation/comparison" self field, is the target policy section with its heading being the policy ID of this target (which is also hashed in the datum and is now the markets were able to locate this utxo).  The target Policy ID also owned by the policy hash, and its individual policy script data, rate, and address (or address array per CIP-0027) is then set in this field for reference by secondary markets.
 
 After minting the RoyaltyControl token, the creator sends this token to a global "Royalty Registry" smartcontract. This is a simple burn contract which locks the token forever.  In this locking transaction, the creator must hash the target policy ID in the proper format:
