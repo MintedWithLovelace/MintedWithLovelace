@@ -18,7 +18,7 @@ For reference, the CIP this merge will apply to is: https://github.com/cardano-f
 
 { "777": { "rate": "0.2", "addr": "addr1v9nevxg9wunfck0gt7hpxuy0elnqygglme3u6l3nn5q5gnq5dc9un" } }
 
-## Proposed Solution and New Metadata Structure per this merge
+## Proposed Solution and New Metadata Structure for e777
 
 Creator mints a token for any given policy they want to set a royalty over ("target policy"), from the same policy wallet used to mint the target policy.
 
