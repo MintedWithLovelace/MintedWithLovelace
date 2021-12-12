@@ -1,351 +1,419 @@
-<html><head>
-    <title>MintedWithLovelace - A Cardano Blockchain dApp - Coming Dec 2021</title>
+<html>
+  <head>
+    <title>MintedWithLovelace | Cardano's First Decentralized (dApp) NFT Launchpad and Marketplace | Coming Dec 2021</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        a {
-            color:#40ffef;
-            text-decoration:none;
-        }
-        a:hover {
-            color:#fff;
-            transition:all ease-in-out 0.4s;
-        }
-        pre {
-            white-space: normal;
-        }
-        .main {
-            display: block;
-            width: 100%;
-        }
-        .cards {
-            display: block;
-            max-width: 600px;
-            margin: 0 auto;
-            color: #fff;
-            background-color: #008e92ff;
-            padding: 40px;
-            list-style-type: square;
-            position: relative;
-            box-shadow: 0px 0px 24px -10px #09191c;
-            padding-top: 16px;
-            float: left;
-        }
-        .card {
-            position: relative;
-            margin: 0 0 40px 0;
-            width: 100%;
-            float: left;
-            display: block;
-            font-size: 16px;
-            min-height: 124px;
-        }
-        .banner-edge {
-            position: absolute;
-            background-color: #559c9e;
-            height: 40px;
-            width: 13px;
-            display: block;
-            margin: 0;
-            z-index: 1;
-            font-size: 12px;
-            color: #d7d7d7;
-        }
-        .banner-edge-l {
-            transform: rotateZ(-2deg);
-            left: -53px;
-        }
-        .banner-edge-r {
-            transform: rotateZ(2deg);
-            right: -53px;
-        }
-        .banner-corner {
-            position: absolute;
-            margin: 0;
-            width: 0;
-            height: 0;
-            border-top: 0 solid transparent;
-            border-bottom: 14px solid #eaf;
-            z-index: 2;
-            display: block;
-            font-size: 12px;
-            color: #d7d7d7;
-        }
-        .banner-corner-l {
-            border-left: 8px solid transparent;
-            left: -48px;
-        }
-        .banner-corner-r {
-            border-right: 8px solid transparent;
-            right: -48px;
-        }
+      body {
+        background-color:#162f33;
+        max-width:700px;
+        margin:0 auto;
+        padding:3%;
+        color:#aaa;
+      }
+      a {
+        color:#40ffef;
+        text-decoration:none;
+      }
+      a:hover {
+        color:#fff;
+        transition:all ease-in-out 0.4s;
+      }
+      header {
+        background-image:url(https://raw.githubusercontent.com/MadeWithLovelace/MintedWithLovelace/main/assets/MintedWithLovelace_MainLogo.svg);
+        display:block;
+        width:100%;
+        height:calc(100vw*.36);
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:contain;
+        max-height:300px;
+        max-width:680px;
+        margin:0 auto;
+      }
+      pre {
+        white-space: normal;
+      }
+      #credit {
+        display: block;
+        margin: -18px 0 40px;
+        font-size: 10px;
+        padding-left: 30px;
+      }
+      .main {
+        display: block;
+        width: 100%;
+      }
+      .progress {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        max-width: 390px;
+        box-shadow: unset;
+        transition: 0.3s all;
+      }
+      .progress-container {
+        position:relative;
+        display: block;
+        height: 40px;
+        width: 100%;
+        background-color: #0b5759;
+        margin: 20px auto;
+      }
+      .progress-front {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background: #0b5759;
+        filter: unset;
+        transition: 0.3s all;
+      }
+      .progress-front > span {
+        display: block;
+        height: 100%;
+        width: 92%;
+        background-color: #40ffef;
+        text-align: center;
+        line-height: 40px;
+        color: #162f33;
+        font-family: sans;
+        position: absolute;
+      }
+      .progress-back {
+        display: block;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        line-height: 40px;
+        color: #162f33;
+        font-family: sans;
+        position: absolute;
+        background: transparent;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: 0.3s all;
+      }
+      .progress-back > span {
+        
+      }
+      .progress:hover {
+        box-shadow: 0 0 1px 1px #79d8e8;
+        transition: 0.3s all;
+      }
+      .progress:hover .progress-front {
+        filter: blur(2px);
+        transition: 0.3s all;
+      }
+      .progress:hover .progress-back {
+        opacity: 1;
+        transition: 0.3s all;
+      }
+      .cards {
+        display: block;
+        max-width: 600px;
+        margin: 0 auto;
+        color: #fff;
+        background-color: #008e92ff;
+        padding: 40px;
+        list-style-type: square;
+        position: relative;
+        box-shadow: 0px 0px 24px -10px #09191c;
+        padding-top: 16px;
+        float: left;
+      }
+      .card {
+        position: relative;
+        margin: 0 0 40px 0;
+        width: 100%;
+        float: left;
+        display: block;
+        font-size: 16px;
+        min-height: 124px;
+      }
+      .banner-edge {
+        position: absolute;
+        background-color: #559c9e;
+        height: 40px;
+        width: 13px;
+        display: block;
+        margin: 0;
+        z-index: 1;
+        font-size: 12px;
+        color: #d7d7d7;
+      }
+      .banner-edge-l {
+        transform: rotateZ(-2deg);
+        left: -53px;
+      }
+      .banner-edge-r {
+        transform: rotateZ(2deg);
+        right: -53px;
+      }
+      .banner-corner {
+        position: absolute;
+        margin: 0;
+        width: 0;
+        height: 0;
+        border-top: 0 solid transparent;
+        border-bottom: 14px solid #eaf;
+        z-index: 2;
+        display: block;
+        font-size: 12px;
+        color: #d7d7d7;
+      }
+      .banner-corner-l {
+        border-left: 8px solid transparent;
+        left: -48px;
+      }
+      .banner-corner-r {
+        border-right: 8px solid transparent;
+        right: -48px;
+      }
+      .banner {
+        background-color: #559c9e;
+        height: 40px;
+        display: block;
+        width: 65%;
+        color: #393939;
+        font-weight: bold;
+        font-size: 34px;
+        font-family: sans;
+        margin-bottom: 10px;
+        margin-top: 9px;
+        z-index: 3;
+        position: absolute;
+        box-shadow: unset;
+        transition: 0.3s all;
+      }
+      .banner-l {
+        text-align: left;
+        padding-left: 33px;
+        left: -48px;
+      }
+      .banner-r {
+        text-align: right;
+        padding-right: 31px;
+        right: -48px;
+      }
+      .card:hover .banner {
+        color: #eaf;
+      }
+      .card:hover .banner-l {
+        box-shadow: 3px 0 6px -3px #162f33;
+        transition: 0.3s all;
+      }
+      .card:hover .banner-r {
+        box-shadow: -3px 0 6px -3px #162f33;
+        transition: 0.3s all;
+      }
+      .banner-space {
+        display: block;
+        height: 40px;
+        margin: 10px 0;
+      }
+      .description {
+        font-size: 18px;
+        font-weight: normal;
+        font-family: sans;
+        margin: 0;
+        display: block;
+        color: #d7d7d7;
+        text-align: justify;
+      }
+      footer {
+        display: block;
+        width: 100%;
+        text-align: center;
+        float: left;
+        margin: 20px 0 60px;
+      }
+      @media screen and (max-width: 768px) {
         .banner {
-            background-color: #559c9e;
-            height: 40px;
-            display: block;
-            width: 65%;
-            color: #393939;
-            font-weight: bold;
-            font-size: 34px;
-            font-family: sans;
-            margin-bottom: 10px;
-            margin-top: 9px;
-            z-index: 3;
-            position: absolute;
-            box-shadow: unset;
-            transition: 0.3s all;
+          width: 100% !important;
+          font-size: 24px !important;
+          line-height: 40px !important;
         }
-        .banner-l {
-            text-align: left;
-            padding-left: 33px;
-            left: -48px;
-        }
-        .banner-r {
-            text-align: right;
-            padding-right: 31px;
-            right: -48px;
-        }
-        .card:hover .banner-l {
-            box-shadow: 3px 0 6px -3px #162f33;
-            transition: 0.3s all;
-        }
-        .card:hover .banner-r {
-            box-shadow: -3px 0 6px -3px #162f33;
-            transition: 0.3s all;
-        }
-        .banner-space {
-            display: block;
-            height: 40px;
-            margin: 10px 0;
-        }
-        .description {
-            font-size: 18px;
-            font-weight: normal;
-            font-family: sans;
-            margin: 0;
-            display: block;
-            color: #d7d7d7;
-            text-align: justify;
-        }
-        .progress {
-            box-shadow: unset;
-            transition: 0.3s all;
-        }
-        .progress:hover {
-            box-shadow: 0 0 1px 1px #79d8e8;
-            transition: 0.3s all;
-        }
-        .progress > span > .front {
-            display: block;
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-            background: #0b5759;
-            filter: unset;
-            transition: 0.3s all;
-        }
-        .progress:hover > span > .front {
-            filter: blur(2px);
-            transition: 0.3s all;
-        }
-        .progress > span > .back {
-            display: block;
-            height: 100%;
-            width: 100%;
-            text-align: center;
-            line-height: 40px;
-            color: #162f33;
-            font-family: sans;
-            position: absolute;
-            background: transparent;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: 0.3s all;
-        }
-        .progress:hover > span > .back {
-            opacity: 1;
-            transition: 0.3s all;
-        }
-        footer {
-            display: block;
-            width: 100%;
-            text-align: center;
-            float: left;
-            margin: 20px 0 60px;
-        }
-        @media screen and (max-width: 768px) {
-            .banner {
-                width: 100% !important;
-                font-size: 24px !important;
-                line-height: 40px !important;
-            }
-        }
+      }
     </style>
   </head>
-    <body style="background-color:#162f33;max-width:700px;margin:0 auto;padding:3%;color:#aaa;">
-      <header style="background-image:url(https://raw.githubusercontent.com/MadeWithLovelace/MintedWithLovelace/main/assets/MintedWithLovelace_MainLogo.svg);display:block;width:100%;height:calc(100vw*.36);background-repeat:no-repeat;background-position:center;background-size:contain;max-height:300px;max-width:680px;margin:0 auto"></header>
-      <pre style="display: block;margin: -18px 0 40px;font-size: 10px;padding-left: 30px;"><a href="https://www.instagram.com/mywoollydsgnz/" target="_blank">a woolly design</a></pre>
-      <section class="main">
-        <pre style="font-style:italic;text-align:center;margin-bottom:0">coming december 2021</pre>
-        <pre style="font-size:22px;text-align:center;color:#40ffef;margin:0;">MintedWithLovelace v.0.1-alpha</pre>
-        <pre style="text-align:center;color:#fff;margin-top:4px;">a decentralized NFT marketplace app</pre>
-        <a class="progress" href="https://github.com/MadeWithLovelace/MintedWithLovelace/projects/1" target="_blank" style="display: block;width: 80%;margin: 0 auto;max-width: 390px;"><span style="position:relative;display: block;height: 40px;width: 100%;background-color: #0b5759;margin: 20px auto;"><span class="front"><span style="display: block;height: 100%;width: 90%;background-color: #40ffef;text-align: center;line-height: 40px;color: #162f33;font-family: sans;position: absolute;">dApp Alpha Progress - 92%</span></span><span class="back">follow our progress on github</span></span></a>
-        <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;">Following is a feature list for the Alpha release of MintedWithLovelace, a Cardano dApp to be released this coming December 2021. To see what additional features are in development, keep an eye out for our roadmap which we'll publish soon.</pre>
-        <pre>
+  <body>
+    <header></header>
+    <pre id="credit"><a href="https://www.instagram.com/mywoollydsgnz/" target="_blank">a woolly design</a></pre>
+    <section class="main">
+      <pre style="font-style:italic;text-align:center;margin-bottom:0">coming december 2021</pre>
+      <pre style="font-size:22px;text-align:center;color:#40ffef;margin:0;">MintedWithLovelace v.0.1-alpha</pre>
+      <pre style="text-align:center;color:#fff;margin-top:4px;">a decentralized NFT marketplace app</pre>
+      <!-- Progress Bar -->
+      <a class="progress" href="https://github.com/MadeWithLovelace/MintedWithLovelace/projects/1" target="_blank">
+        <div class="progress-container">
+          <div class="progress-front">
+            <span>dApp Alpha Progress - 92%</span>
+          </div>
+          <div class="progress-back">
+            <span>follow our progress on github</span>
+          </div>
+        </div>
+      </a>
+      <!-- end -->
+      <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;">Following is a feature list for the Alpha release of MintedWithLovelace, a Cardano dApp to be released this coming December 2021. To see what additional features are in development, keep an eye out for our roadmap which we'll publish soon.</pre>
+      <pre>
         <section class="cards">
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Mint On-Demand</span>
-                <span class="banner-space"></span>
-                <span class="description l">Run a fully automated mint-on-demand NFT sale (or auction) directly from your computer and with full ownership over the wallet/keys. When anyone sends the specified amount, one of your NFTs will mint immediately at their address. You can even add tx-related data to the metadata on-the-fly, such as the buyers address embedded into html or attribute.  Most of the following features are related to this broad feature.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">Full Ownership</span>
-                <span class="banner-space"></span>
-              <span class="description r">As opposed to a 3rd party/centralized website service, this dApp gives you full control over your keys and your entire project. The royalty registry is also completely decentralized and smartcontract based, meaning only YOU can make changes.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Scalable</span>
-                <span class="banner-space"></span>
-              <span class="description">Setup your project of 1 or a few NFTs, or thousands</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">Mint-at-Buyer</span>
-                <span class="banner-space"></span>
-              <span class="description">Minting can occur at your buyer's wallet or a wallet of your choosing</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Smart Whitelisting</span>
-                <span class="banner-space"></span>
-              <span class="description">An optional whitelist can be used for any project/profile with an additional option of removing from the whitelist after a successful mint. Whitelisting will whitelist the entire wallet for complex/long addresses!</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">Sale or Auction</span>
-                <span class="banner-space"></span>
-              <span class="description">Run your NFT project using a set price as in a sale, a range, or launch an auction for a single NFT</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Random or Ordered</span>
-                <span class="banner-space"></span>
-              <span class="description">Configure your project to mint a random NFT from your collection or mint in either ascending or descending order</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">Integrated Wallet</span>
-                <span class="banner-space"></span>
-              <span class="description">MintedWithLovelace can either be used with your wallet/policy keys, or you can choose to generate them in the dApp. Because the dApp is decentralized it will generate your wallet and policy keys via the cardano-cli, and store them within your Profile. The minting functions will utilize this wallet and accompanying policy key for everything campaign related.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Automated IPFS</span>
-                <span class="banner-space"></span>
-              <span class="description">With full support for both pinata and blockfrost, preparing your images is as simple as telling the dapp what folder they are in and waiting for them to process and upload to your pinning service provider.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">IPFS or Onchain</span>
-                <span class="banner-space"></span>
-              <span class="description">Run your NFT project using PNG images, pinned on IPFS, or using SVG images and HTML content for 100% on-chain minting (capability limited based on image size)</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Automated JSONs</span>
-                <span class="banner-space"></span>
-              <span class="description">NFT json files are autogenerated in the background when you setup your project. No need to structure individual JSON files for each image.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">Auto-Refunding</span>
-                <span class="banner-space"></span>
-              <span class="description">When you setup your project, depending on the parameters you set, payments received that do not match the criteria will be automatically refunded to the sender. You can also set to deduct a refund fee.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Manual Minting</span>
-                <span class="banner-space"></span>
-              <span class="description">Mint any native token as a "one-off", great for custom minting of a few from a collection, preminting some NFTs, minting non-NFT tokens, etc. Can be minted standalone or assigned to a policy ID you own.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">Royalty Registry</span>
-                <span class="banner-space"></span>
-              <span class="description">In preparation for the future releases of MintedWithLovelace, every minting project/profile you create in the dapp will be registered in MintedWithLovelace SmartContract Registry. This registry will be used for enforcing royalty payments in the secondary marketplace of the MintedWithLovelace dApp (releasing in 2022).</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Decentralized</span>
-                <span class="banner-space"></span>
-              <span class="description">This is a "dapp" through and through! Alpha version will only run on a full node.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">Easy CLI</span>
-                <span class="banner-space"></span>
-              <span class="description">This release will feature a very easy to use, guided command line interface (Terminal). We're working on a GUI Release for v. 1.4 beta (date tba)</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Multi-OS Support</span>
-                <span class="banner-space"></span>
-              <span class="description">MintedWithLovelace is coded in Python 3 and will run on almost any desktop environment with Python 3.5 or greater!</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">Multi-Profile</span>
-                <span class="banner-space"></span>
-              <span class="description">Launch one or many NFT projects or multiple campaigns within a project, Perform "one-off" Minting Associated With a Profile or Standalone, Run a Live Blockchain-based NFT Auction, Setup a Token Swap or Decentralized Exchanger, Run a Simple Transaction Logger.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">Detailed Logs</span>
-                <span class="banner-space"></span>
-              <span class="description">Important transaction data or errors are all logged into the appropriate profile running.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-r"></span>
-                <span class="banner-corner banner-corner-r"></span>
-                <span class="banner banner-r">Testnet</span>
-                <span class="banner-space"></span>
-              <span class="description">Configure and deploy your project on Testnet first with very minimal reconfiguration required to deploy on mainnet.</span>
-            </div>
-            <div class="card">
-                <span class="banner-edge banner-edge-l"></span>
-                <span class="banner-corner banner-corner-l"></span>
-                <span class="banner banner-l">TXLog-Only</span>
-                <span class="banner-space"></span>
-              <span class="description">Monitors a given Cardano address for all transactions, logging the date, sender address, amount.</span>
-            </div>
-          </section>
-        </pre>
-      </section>
-      <footer>
-        <pre><a href="https://github.com/MadeWithLovelace/MintedWithLovelace" target="_blank">GitHub</a> | <a href="https://twitter.com/mintedwithlove" target="_blank">Twitter</a> | <a href="https://discord.gg/2xEVRTSAeQ" target="_blank">Discord</a></pre>
-      </footer>
-</body>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Mint On-Demand</span>
+            <span class="banner-space"></span>
+            <span class="description l">Run a fully automated mint-on-demand NFT sale (or auction) directly from your computer and with full ownership over the wallet/keys. When anyone sends the specified amount, one of your NFTs will mint immediately at their address. You can even add tx-related data to the metadata on-the-fly, such as the buyers address embedded into html or attribute.  Most of the following features are related to this broad feature.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">Full Ownership</span>
+            <span class="banner-space"></span>
+            <span class="description r">As opposed to a 3rd party/centralized website service, this dApp gives you full control over your keys and your entire project. The royalty registry is also completely decentralized and smartcontract based, meaning only YOU can make changes.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Scalable</span>
+            <span class="banner-space"></span>
+            <span class="description">Setup your project of 1 or a few NFTs, or thousands</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">Mint-at-Buyer</span>
+            <span class="banner-space"></span>
+            <span class="description">Minting can occur at your buyer's wallet or a wallet of your choosing</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Smart Whitelisting</span>
+            <span class="banner-space"></span>
+            <span class="description">An optional whitelist can be used for any project/profile with an additional option of removing from the whitelist after a successful mint. Whitelisting will whitelist the entire wallet for complex/long addresses!</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">Sale or Auction</span>
+            <span class="banner-space"></span>
+            <span class="description">Run your NFT project using a set price as in a sale, a range, or launch an auction for a single NFT</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Random or Ordered</span>
+            <span class="banner-space"></span>
+            <span class="description">Configure your project to mint a random NFT from your collection or mint in either ascending or descending order</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">Integrated Wallet</span>
+            <span class="banner-space"></span>
+            <span class="description">MintedWithLovelace can either be used with your wallet/policy keys, or you can choose to generate them in the dApp. Because the dApp is decentralized it will generate your wallet and policy keys via the cardano-cli, and store them within your Profile. The minting functions will utilize this wallet and accompanying policy key for everything campaign related.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Automated IPFS</span>
+            <span class="banner-space"></span>
+            <span class="description">With full support for both pinata and blockfrost, preparing your images is as simple as telling the dapp what folder they are in and waiting for them to process and upload to your pinning service provider.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">IPFS or Onchain</span>
+            <span class="banner-space"></span>
+            <span class="description">Run your NFT project using PNG images, pinned on IPFS, or using SVG images and HTML content for 100% on-chain minting (capability limited based on image size)</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Automated JSONs</span>
+            <span class="banner-space"></span>
+            <span class="description">NFT json files are autogenerated in the background when you setup your project. No need to structure individual JSON files for each image.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">Auto-Refunding</span>
+            <span class="banner-space"></span>
+            <span class="description">When you setup your project, depending on the parameters you set, payments received that do not match the criteria will be automatically refunded to the sender. You can also set to deduct a refund fee.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Manual Minting</span>
+            <span class="banner-space"></span>
+            <span class="description">Mint any native token as a "one-off", great for custom minting of a few from a collection, preminting some NFTs, minting non-NFT tokens, etc. Can be minted standalone or assigned to a policy ID you own.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">Royalty Registry</span>
+            <span class="banner-space"></span>
+            <span class="description">In preparation for the future releases of MintedWithLovelace, every minting project/profile you create in the dapp will be registered in MintedWithLovelace SmartContract Registry. This registry will be used for enforcing royalty payments in the secondary marketplace of the MintedWithLovelace dApp (releasing in 2022).</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Decentralized</span>
+            <span class="banner-space"></span>
+            <span class="description">This is a "dapp" through and through! Alpha version will only run on a full node.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">Easy CLI</span>
+            <span class="banner-space"></span>
+            <span class="description">This release will feature a very easy to use, guided command line interface (Terminal). We're working on a GUI Release for v. 1.4 beta (date tba)</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Multi-OS Support</span>
+            <span class="banner-space"></span>
+            <span class="description">MintedWithLovelace is coded in Python 3 and will run on almost any desktop environment with Python 3.5 or greater!</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">Multi-Profile</span>
+            <span class="banner-space"></span>
+            <span class="description">Launch one or many NFT projects or multiple campaigns within a project, Perform "one-off" Minting Associated With a Profile or Standalone, Run a Live Blockchain-based NFT Auction, Setup a Token Swap or Decentralized Exchanger, Run a Simple Transaction Logger.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">Detailed Logs</span>
+            <span class="banner-space"></span>
+            <span class="description">Important transaction data or errors are all logged into the appropriate profile running.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-r"></span>
+            <span class="banner-corner banner-corner-r"></span>
+            <span class="banner banner-r">Testnet</span>
+            <span class="banner-space"></span>
+            <span class="description">Configure and deploy your project on Testnet first with very minimal reconfiguration required to deploy on mainnet.</span>
+          </div>
+          <div class="card">
+            <span class="banner-edge banner-edge-l"></span>
+            <span class="banner-corner banner-corner-l"></span>
+            <span class="banner banner-l">TXLog-Only</span>
+            <span class="banner-space"></span>
+            <span class="description">Monitors a given Cardano address for all transactions, logging the date, sender address, amount.</span>
+          </div>
+        </section>
+      </pre>
+    </section>
+    <footer>
+      <pre>
+        <a href="https://github.com/MadeWithLovelace/MintedWithLovelace" target="_blank">GitHub</a> | <a href="https://twitter.com/mintedwithlove" target="_blank">Twitter</a> | <a href="https://discord.gg/2xEVRTSAeQ" target="_blank">Discord</a>
+      </pre>
+    </footer>
+  </body>
 </html>
