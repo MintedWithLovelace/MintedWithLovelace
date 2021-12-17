@@ -165,32 +165,32 @@
       color: #d7d7d7;
       top: -1px;
     }
-    .banner:nth-child(odd) {
+    .card:nth-child(odd) .banner {
       text-align: left;
       padding-left: 33px;
       left: -48px;
     }
-    .banner:nth-child(odd):before {
+    .card:nth-child(odd) .banner:before {
       content:"";
       border-left: 8px solid transparent;
       left: 0;
     }
-    .banner:nth-child(odd):after {
+    .card:nth-child(odd) .banner:after {
       content:"";
       transform: rotateZ(-2deg);
       left: -4px;
     }
-    .banner:nth-child(even) {
+    .card:nth-child(even) .banner {
       text-align: right;
       padding-right: 31px;
       right: -48px;
     }
-    .banner:nth-child(even):before {
+    .card:nth-child(even) .banner:before {
       content:"";
       border-right: 8px solid transparent;
       right: 0;
     }
-    .banner:nth-child(even):after {
+    .card:nth-child(even) .banner:after {
       content:"";
       transform: rotateZ(2deg);
       right: -4px;
@@ -209,13 +209,13 @@
       z-index:3;
       transition: 0.3s all;
     }
-    .banner-title:nth-child(odd) {
+    .card:nth-child(odd) .banner-title {
       float: left;
       text-align: left;
       margin-left: -48px;
       padding-left: 33px;
     }
-    .banner-title:nth-child(even) {
+    .card:nth-child(even) .banner-title {
       float: right;
       text-align: right;
       margin-right: -48px;
@@ -225,11 +225,11 @@
       color: #eaf;
       transition: 0.3s all;
     }
-    .card:hover .banner-title:nth-child(odd) {
+    .card:nth-child(odd):hover .banner-title {
       box-shadow: 3px 0 6px -3px #162f33;
       transition: 0.3s all;
     }
-    .card:hover .banner-title:nth-child(even) {
+    .card:nth-child(even):hover .banner-title {
       box-shadow: -3px 0 6px -3px #162f33;
       transition: 0.3s all;
     }
