@@ -270,28 +270,17 @@
       display: block;
       background-color: #008e92;
     }
+    @keyframes move-etch-tool {
+      from {top: 5;}
+      to {top: 8000px;}
+    }
     #etch_tool {
       width: 100%;display: block;margin: 20px auto;height: 60px;/*! background-color: #40ffef; */color: #008e92ff;font-size: 32px;font-family: sans;font-weight: bold;padding: 2px 0px;/*! border-radius: 4px; *//*! box-shadow: 0 0 8px -4px #162f33; */position: fixed;left: 0;height: 2px;/*! overflow: hidden; *//*! box-shadow: 0 0 12px 5px #40ffef; */padding: 0;z-index: 99;background: #162f33;height: calc(100vh);
-    }
-    .etchtool-begin {
-      top: 200px;
-      opacity: 1;
-    }
-    .etchtool-end {
-      top: 8000px;
-      opacity: 0;
-      transition: top 0.5s 10s ease;
-      transition: opacity 10s 0 ease;
+      animation-name: move-etch-tool;
+      animation-duration: 10s;
     }
     #etch_beam {
-      height: 100%;width: 100%;display: block;/*! z-index: 1; */position: absolute;height: 200px;background: #40ffef;height: 1px;overflow: hidden;box-shadow: 0 0 4px 2px #40ffef;padding: 0;
-    }
-    .etchbeam-begin {
-      opacity: 0;
-    }
-    .etchbeam-end {
-      opacity: 1;
-      transition: all 0.5s 0 ease;
+      height: 100%;width: 100%;display: block;/*! z-index: 1; */position: absolute;height: 200px;background: #40ffef;height: 1px;overflow: hidden;box-shadow: 0 0 4px 2px #40ffef;padding: 0;opacity: 1;
     }
     @media screen and (max-width: 768px) {
       .banner-title {
@@ -312,8 +301,8 @@
 <body id="top" style="max-width: 900px;">
 
   
-  <div id="etch_tool" class="etchtool-begin etchtool-end">
-    <div id="etch_beam" class="etchbeam-begin etchbeam-end"></div>
+  <div id="etch_tool">
+    <div id="etch_beam"></div>
   </div>
   <header style="max-width: 100%;height: calc(100vw*.20);/*! max-height: 250px; */position: relative;z-index: 1;margin-bottom: 74px;">
     <div style="float: left;width: 66%;height: 85%;z-index: 99;position: relative;">
