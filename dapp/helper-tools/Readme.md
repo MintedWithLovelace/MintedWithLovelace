@@ -4,6 +4,12 @@
 2. Once logged into your server, perform a little security "hardening" by following this guide: https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/how-to-harden-ubuntu-server
 3. After your server is hardened, run the following Node Setup script for the network type of this system (mainnet or testnet) using the appropriate script from this repo. 
       (Alternatively you may also use the script as a step by step guide and issue each command by hand)
+      
+### For Testnet:
+https://github.com/MadeWithLovelace/MintedWithLovelace/blob/sandbox/dapp/helper-tools/setupTestnetCardanoNode.sh
+
+### For Mainnet:
+https://github.com/MadeWithLovelace/MintedWithLovelace/blob/sandbox/dapp/helper-tools/setupMainnetCardanoNode.sh
 
 After the script completes it will have attempted to launch cardano-node. Check for any errors (there will be some warnings this is normal) and use ./gLiveView to see the live status of the sync/node.
 
