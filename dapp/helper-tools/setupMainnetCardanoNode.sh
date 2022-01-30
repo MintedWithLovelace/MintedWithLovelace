@@ -38,8 +38,8 @@ ghcup install cabal 3.4.0.0
 ghcup set cabal 3.4.0.0
 
 ### Install GHC
-ghcup install ghc 8.10.4
-ghcup set ghc 8.10.4
+ghcup install ghc 8.10.7
+ghcup set ghc 8.10.7
 
 ### Update the PATH
 echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
@@ -54,7 +54,7 @@ NODE_HOME=$HOME/cardano-my-node
 NODE_CONFIG=mainnet
 
 ### Update Cabal and verify versions
-### IMPORTANT: Cabal should be at version 3.4.0.0 and GHC should be at version 8.10.4
+### IMPORTANT: Cabal should be at version 3.4.0.0 and GHC should be at version 8.10.7
 cabal update
 cabal --version
 ghc --version
@@ -65,17 +65,21 @@ git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
 git fetch --all --recurse-submodules --tags
 git checkout $(curl -s https://api.github.com/repos/input-output-hk/cardano-node/releases/latest | jq -r .tag_name)
-cabal configure -O0 -w ghc-8.10.4
+cabal configure -O0 -w ghc-8.10.7
 echo -e "package cardano-crypto-praos\n flags: -external-libsodium-vrf" > cabal.project.local
 sed -i $HOME/.cabal/config -e "s/overwrite-policy:/overwrite-policy: always/g"
-rm -rf $HOME/git/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.4
+rm -rf $HOME/git/cardano-node/dist-newstyle/build/x86_64-linux/ghc-8.10.7
 cabal build cardano-cli cardano-node
 
 ### This build process will take a while
 
 ### Copy cardano-cli and cardano-node binaries to bin directory
-sudo cp $(find $HOME/git/cardano-node/dist-newstyle/build -type f -name "cardano-cli") /usr/local/bin/cardano-cli
-sudo cp $(find $HOME/git/cardano-node/dist-newstyle/build -type f -name "cardano-node") /usr/local/bin/cardano-node
+CLIIN=$(find $HOME/git/cardano-node/dist-newstyle/build -type f -name "cardano-cli")
+CLIOUT=/usr/local/bin/cardano-cli
+NODEIN=$(find $HOME/git/cardano-node/dist-newstyle/build -type f -name "cardano-node")
+NODEOUT=/usr/local/bin/cardano-node
+sudo cp $CLIIN $CLIOUT
+sudo cp $NODEIN $NODEOUT
 
 ### Verify versions are up to date/expected versions
 cardano-node version
@@ -162,7 +166,7 @@ chmod 755 gLiveView.sh
 sed -i env \
     -e "s/\#CONFIG=\"\${CNODE_HOME}\/files\/config.json\"/CONFIG=\"\${NODE_HOME}\/mainnet-config.json\"/g" \
     -e "s/\#SOCKET=\"\${CNODE_HOME}\/sockets\/node0.socket\"/SOCKET=\"\${NODE_HOME}\/db\/socket\"/g"
-rm $HOME/.temp_mwl
+sudo rm $HOME/.temp_mwl -r
 
 # End!
 echo ""
