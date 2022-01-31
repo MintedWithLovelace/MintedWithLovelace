@@ -24,7 +24,7 @@ git checkout 66f017f1
 ./autogen.sh
 ./configure
 make
-sudo make Install
+sudo make install
 
 ### Run this little program
 ### IMPORTANT: Answer NO to installing the haskell-language-server (HLS) and NO to stack; Answer YES to automatically add the required PATH variable
@@ -45,13 +45,15 @@ ghcup set ghc 8.10.7
 echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
 echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc
 echo export NODE_HOME=$HOME/cardano-my-node >> $HOME/.bashrc
-echo export NODE_CONFIG=mainnet>> $HOME/.bashrc
+echo export NODE_CONFIG=testnet>> $HOME/.bashrc
+echo export TESTNET_MAGIC_NUM=1097911063>> $HOME/.bashrc
 source $HOME/.bashrc
 
 # Following 4 lines for when running as a script:
 LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 NODE_HOME=$HOME/cardano-my-node
-NODE_CONFIG=mainnet
+NODE_CONFIG=testnet
+TESTNET_MAGIC_NUM=1097911063
 
 ### Update Cabal and verify versions
 ### IMPORTANT: Cabal should be at version 3.4.0.0 and GHC should be at version 8.10.7
@@ -74,12 +76,8 @@ cabal build cardano-cli cardano-node
 ### This build process will take a while
 
 ### Copy cardano-cli and cardano-node binaries to bin directory
-CLIIN=$(find $HOME/git/cardano-node/dist-newstyle/build -type f -name "cardano-cli")
-CLIOUT=/usr/local/bin/cardano-cli
-NODEIN=$(find $HOME/git/cardano-node/dist-newstyle/build -type f -name "cardano-node")
-NODEOUT=/usr/local/bin/cardano-node
-sudo cp $CLIIN $CLIOUT
-sudo cp $NODEIN $NODEOUT
+sudo cp $(find $HOME/git/cardano-node/dist-newstyle/build -type f -name "cardano-cli") /usr/local/bin/cardano-cli
+sudo cp $(find $HOME/git/cardano-node/dist-newstyle/build -type f -name "cardano-node") /usr/local/bin/cardano-node
 
 ### Verify versions are up to date/expected versions
 cardano-node version
@@ -164,16 +162,35 @@ curl -s -o gLiveView.sh https://raw.githubusercontent.com/cardano-community/guil
 curl -s -o env https://raw.githubusercontent.com/cardano-community/guild-operators/master/scripts/cnode-helper-scripts/env
 chmod 755 gLiveView.sh
 sed -i env \
-    -e "s/\#CONFIG=\"\${CNODE_HOME}\/files\/config.json\"/CONFIG=\"\${NODE_HOME}\/mainnet-config.json\"/g" \
+    -e "s/\#CONFIG=\"\${CNODE_HOME}\/files\/config.json\"/CONFIG=\"\${NODE_HOME}\/testnet-config.json\"/g" \
     -e "s/\#SOCKET=\"\${CNODE_HOME}\/sockets\/node0.socket\"/SOCKET=\"\${NODE_HOME}\/db\/socket\"/g"
-sudo rm $HOME/.temp_mwl -r
 
 # End!
 echo ""
 echo ""
 echo ""
 echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
 echo "Finished!"
+echo ""
+echo ""
+echo ""
+echo ""
 echo ""
 echo "Before continuing, source the bashrc with the following command: source ~/.bashrc"
 echo ""
