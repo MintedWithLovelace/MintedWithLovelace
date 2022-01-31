@@ -1,5 +1,7 @@
 ## How To Setup a Cardano Node
 
+Based on the excellent guide on [https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node](CoinCashew), these scripts will allow you to (almost)automate the process of installing a Cardano full node for either Testnet or Mainnet. This is not the same as a staking pool, which the [https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node](CoinCashew) guide goes on to cover from where these scripts leave off.
+
 1. Install Debian 10+ or Ubuntu 18+ on a computer, VM, or VPS/Baremetal Server with at minimum 8 GB of RAM (16 GB is ideal).
 2. Once logged into your server, perform a little security "hardening" by following this guide: https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/how-to-harden-ubuntu-server
 3. After your server is hardened, run the following Node Setup script for the network type of this system (mainnet or testnet) using the appropriate script from this repo. 
