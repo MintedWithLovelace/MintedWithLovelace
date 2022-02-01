@@ -45,6 +45,7 @@ ghcup set ghc 8.10.7
 echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
 echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc
 echo export NODE_HOME=$HOME/cardano-my-node >> $HOME/.bashrc
+echo export CARDANO_NODE_SOCKET_PATH=$HOME/cardano-my-node/db/socket >> $HOME/.bashrc
 echo export NODE_CONFIG=testnet>> $HOME/.bashrc
 echo export TESTNET_MAGIC_NUM=1097911063>> $HOME/.bashrc
 source $HOME/.bashrc
@@ -52,6 +53,7 @@ source $HOME/.bashrc
 # Following 4 lines for when running as a script:
 LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 NODE_HOME=$HOME/cardano-my-node
+CARDANO_NODE_SOCKET_PATH=$HOME/cardano-my-node/db/socket
 NODE_CONFIG=testnet
 TESTNET_MAGIC_NUM=1097911063
 
