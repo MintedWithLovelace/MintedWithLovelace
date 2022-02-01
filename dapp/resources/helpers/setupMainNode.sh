@@ -45,15 +45,15 @@ ghcup set ghc 8.10.7
 echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
 echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc
 echo export NODE_HOME=$HOME/cardano-my-node >> $HOME/.bashrc
-echo export NODE_CONFIG=testnet>> $HOME/.bashrc
-echo export TESTNET_MAGIC_NUM=1097911063>> $HOME/.bashrc
+echo export CARDANO_NODE_SOCKET_PATH=$HOME/cardano-my-node/db/socket >> $HOME/.bashrc
+echo export NODE_CONFIG=mainnet>> $HOME/.bashrc
 source $HOME/.bashrc
 
 # Following 4 lines for when running as a script:
 LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 NODE_HOME=$HOME/cardano-my-node
-NODE_CONFIG=testnet
-TESTNET_MAGIC_NUM=1097911063
+CARDANO_NODE_SOCKET_PATH=$HOME/cardano-my-node/db/socket
+NODE_CONFIG=mainnet
 
 ### Update Cabal and verify versions
 ### IMPORTANT: Cabal should be at version 3.4.0.0 and GHC should be at version 8.10.7
@@ -162,7 +162,7 @@ curl -s -o gLiveView.sh https://raw.githubusercontent.com/cardano-community/guil
 curl -s -o env https://raw.githubusercontent.com/cardano-community/guild-operators/master/scripts/cnode-helper-scripts/env
 chmod 755 gLiveView.sh
 sed -i env \
-    -e "s/\#CONFIG=\"\${CNODE_HOME}\/files\/config.json\"/CONFIG=\"\${NODE_HOME}\/testnet-config.json\"/g" \
+    -e "s/\#CONFIG=\"\${CNODE_HOME}\/files\/config.json\"/CONFIG=\"\${NODE_HOME}\/mainnet-config.json\"/g" \
     -e "s/\#SOCKET=\"\${CNODE_HOME}\/sockets\/node0.socket\"/SOCKET=\"\${NODE_HOME}\/db\/socket\"/g"
 
 # End!
