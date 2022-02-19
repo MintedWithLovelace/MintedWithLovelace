@@ -10,10 +10,10 @@ As part of the MintedWithLovelace project, these scripts can be used to easily s
       (Alternatively you may also use the script as a step by step guide and issue each command by hand)
       
 ### For Testnet:
-https://github.com/MadeWithLovelace/MintedWithLovelace/blob/sandbox/dapp/helper-tools/setupTestnetCardanoNode.sh
+https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/resources/helpers/setupTestNode.sh
 
 ### For Mainnet:
-https://github.com/MadeWithLovelace/MintedWithLovelace/blob/sandbox/dapp/helper-tools/setupMainnetCardanoNode.sh
+https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/resources/helpers/setupMainNode.sh
 
 After the script completes it will have attempted to launch cardano-node. Check for any errors (there will be some warnings this is normal) and use ./gLiveView to see the live status of the sync/node.
 
