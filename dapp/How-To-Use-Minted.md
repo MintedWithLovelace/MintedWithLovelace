@@ -73,7 +73,7 @@ For the above example as a JSON file for use with Minted, you would need to also
 
 Once you have your JSON and image files configured and named accordingly, make sure to separate them into two folders, a json folder containing ONLY your prepared json files and an images folder containing ONLY your associated image files. In the example for this guide, we'll have 20 NFTs prepared in 20 json files and 20 related image png files, in their own distinct folders as follows:
 
-IMAGE
+https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/img1-guide.png
 
 #### Planning Your Policy ID Params
 
