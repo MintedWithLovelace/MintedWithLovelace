@@ -1,2 +1,2 @@
 # MintedWithLovelace dApp Releases
-## Latest Release: Minted v0.0.7e-Alpha
+## Stable Release: Minted v0.0.9-Alpha (coming March 31, 2022)
