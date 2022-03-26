@@ -24,8 +24,8 @@ source $HOME/.bashrc
 echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc
 echo export NODE_HOME=$HOME/cardano-my-node >> $HOME/.bashrc
 source $HOME/.bashrc
-echo export CARDANO_NODE_SOCKET_PATH=$HOME/cardano-my-node/db/socket >> $HOME/.bashrc
-echo export TESTNET_MAGIC_NUM=1097911063>> $HOME/.bashrc
+echo export CARDANO_CLI=/usr/local/bin/cardano-cli >> $HOME/.bashrc
+echo export TESTNET_MAGIC_NUM=1097911063 >> $HOME/.bashrc
 echo export CARDANO_NODE_SOCKET_PATH="$NODE_HOME/db/socket" >> $HOME/.bashrc
 source $HOME/.bashrc
 ```
