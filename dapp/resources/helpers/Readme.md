@@ -25,6 +25,7 @@ echo export TESTNET_MAGIC_NUM=1097911063>> $HOME/.bashrc
 echo export CARDANO_NODE_SOCKET_PATH="$NODE_HOME/db/socket" >> $HOME/.bashrc
 source $HOME/.bashrc
 ```
+Remember to reboot after these prereq commands before running the script.
 
 ### For Testnet:
 https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/resources/helpers/setupTestNode.sh
