@@ -12,7 +12,12 @@ As part of the MintedWithLovelace project, these scripts can be used to easily s
 ### PREREQS:
 Before you run the script of your choice below, first run the following in your terminal and reboot your device
 
+Replace the word "testnet" with "mainnet" if you are running the mainnet script next.
+
 ```
+# Replace the word testnet with mainnet in this line if you are doing this on a mainnet device:
+echo export NODE_CONFIG=testnet>> $HOME/.bashrc
+
 echo export TMPDIR=$HOME/.temp_mwl>> $HOME/.bashrc
 echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
 source $HOME/.bashrc
@@ -20,7 +25,6 @@ echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc
 echo export NODE_HOME=$HOME/cardano-my-node >> $HOME/.bashrc
 source $HOME/.bashrc
 echo export CARDANO_NODE_SOCKET_PATH=$HOME/cardano-my-node/db/socket >> $HOME/.bashrc
-echo export NODE_CONFIG=testnet>> $HOME/.bashrc
 echo export TESTNET_MAGIC_NUM=1097911063>> $HOME/.bashrc
 echo export CARDANO_NODE_SOCKET_PATH="$NODE_HOME/db/socket" >> $HOME/.bashrc
 source $HOME/.bashrc
