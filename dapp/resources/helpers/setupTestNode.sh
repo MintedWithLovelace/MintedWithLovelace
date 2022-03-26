@@ -1,12 +1,6 @@
 # Prep environment
 mkdir $HOME/.temp_mwl
 
-# Following line is for script only:
-TMPDIR=$HOME/.temp_mwl
-
-echo export TMPDIR=$HOME/.temp_mwl>> $HOME/.bashrc
-source $HOME/.bashrc
-
 # Install Cabal and GHC
 ### Install dependencies
 sudo apt-get update -y
@@ -26,8 +20,8 @@ git checkout 66f017f1
 make
 sudo make install
 
-### Run this little program
 ### IMPORTANT: Answer NO to installing the haskell-language-server (HLS) and NO to stack; Answer YES to automatically add the required PATH variable
+echo "Answer YES to automatically add the required PATH variable; Answer NO to installing the haskell-language-server (HLS) and NO to stack"
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 source /home/user/.ghcup/env
 
@@ -40,22 +34,6 @@ ghcup set cabal 3.4.0.0
 ### Install GHC
 ghcup install ghc 8.10.7
 ghcup set ghc 8.10.7
-
-### Update the PATH
-echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
-echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc
-echo export NODE_HOME=$HOME/cardano-my-node >> $HOME/.bashrc
-echo export CARDANO_NODE_SOCKET_PATH=$HOME/cardano-my-node/db/socket >> $HOME/.bashrc
-echo export NODE_CONFIG=testnet>> $HOME/.bashrc
-echo export TESTNET_MAGIC_NUM=1097911063>> $HOME/.bashrc
-source $HOME/.bashrc
-
-# Following 4 lines for when running as a script:
-LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
-NODE_HOME=$HOME/cardano-my-node
-CARDANO_NODE_SOCKET_PATH=$HOME/cardano-my-node/db/socket
-NODE_CONFIG=testnet
-TESTNET_MAGIC_NUM=1097911063
 
 ### Update Cabal and verify versions
 ### IMPORTANT: Cabal should be at version 3.4.0.0 and GHC should be at version 8.10.7
@@ -95,13 +73,6 @@ wget -N https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest
 wget -N https://hydra.iohk.io/job/Cardano/cardano-node/cardano-deployment/latest-finished/download/1/${NODE_CONFIG}-topology.json
 sed -i ${NODE_CONFIG}-config.json \
     -e "s/TraceBlockFetchDecisions\": false/TraceBlockFetchDecisions\": true/g"
-
-### Update bashrc
-echo export CARDANO_NODE_SOCKET_PATH="$NODE_HOME/db/socket" >> $HOME/.bashrc
-source $HOME/.bashrc
-
-# Following line for when running as a script:
-CARDANO_NODE_SOCKET_PATH="$NODE_HOME/db/socket"
 
 ### Optional/Recommended
 ### Create Startup Script
