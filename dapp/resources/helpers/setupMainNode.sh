@@ -21,6 +21,7 @@ make
 sudo make install
 
 ### IMPORTANT: Answer NO to installing the haskell-language-server (HLS) and NO to stack; Answer YES to automatically add the required PATH variable
+echo "Answer YES to automatically add the required PATH variable; Answer NO to installing the haskell-language-server (HLS) and NO to stack"
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 source /home/user/.ghcup/env
 
