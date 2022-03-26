@@ -8,7 +8,24 @@ As part of the MintedWithLovelace project, these scripts can be used to easily s
 2. Once logged into your server, perform a little security "hardening" by following this guide: https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/how-to-harden-ubuntu-server
 3. After your server is hardened, run the following Node Setup script for the network type of this system (mainnet or testnet) using the appropriate script from this repo. 
       (Alternatively you may also use the script as a step by step guide and issue each command by hand)
-      
+
+### PREREQS:
+Before you run the script of your choice below, first run the following in your terminal and reboot your device
+
+```
+echo export TMPDIR=$HOME/.temp_mwl>> $HOME/.bashrc
+echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
+source $HOME/.bashrc
+echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc
+echo export NODE_HOME=$HOME/cardano-my-node >> $HOME/.bashrc
+source $HOME/.bashrc
+echo export CARDANO_NODE_SOCKET_PATH=$HOME/cardano-my-node/db/socket >> $HOME/.bashrc
+echo export NODE_CONFIG=testnet>> $HOME/.bashrc
+echo export TESTNET_MAGIC_NUM=1097911063>> $HOME/.bashrc
+echo export CARDANO_NODE_SOCKET_PATH="$NODE_HOME/db/socket" >> $HOME/.bashrc
+source $HOME/.bashrc
+```
+
 ### For Testnet:
 https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/resources/helpers/setupTestNode.sh
 
