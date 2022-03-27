@@ -174,5 +174,5 @@ When the campaign Dashboard is opened, the auto campaign is not running necessar
 
 #### Further Help and Support
 
-To explore other features, scenarios, get help and support, etc, please join the official MintedWithLovelace discord by visiting https://mintedwithlovelace.com
+To explore other features, scenarios, get help and support, etc, please join the [official MintedWithLovelace discord](https://discord.gg/2xEVRTSAeQ)
 
