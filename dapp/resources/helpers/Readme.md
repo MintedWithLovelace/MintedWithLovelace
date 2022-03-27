@@ -37,7 +37,7 @@ source $HOME/.bashrc
 
 For Testnet
 ```
-echo -e "\r" >> $HOME/.bashrc
+echo -e "\n" >> $HOME/.bashrc
 echo export NODE_CONFIG=testnet >> $HOME/.bashrc
 source $HOME/.bashrc
 
