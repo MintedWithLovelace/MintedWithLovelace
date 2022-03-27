@@ -1,4 +1,4 @@
 # MintedWithLovelace
-Decentralized NFT launchpad and marketplace on the Cardano blockchain. Alpha arrived January 23, 2022.
+Decentralized NFT launchpad and marketplace on the Cardano blockchain. Minted9 is now released and can be found at: https://github.com/MadeWithLovelace/MintedWithLovelace/tree/main/dapp
 
-This is the main project repo for the MintedWithLovelace project. For the MintedWithLovelace dApp, the repo is now located at https://github.com/MadeWithLovelace/MintedWithLovelace-dapp - however is set to private until we open our source publicly, and will resolve as a 404 otherwise.
+To learn more about this project, ask questions, get support, etc, feel free to join us on [Discord](https://discord.gg/2xEVRTSAeQ)
