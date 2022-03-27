@@ -5,7 +5,7 @@ Please refer to ["How To Use Minted"](https://github.com/MadeWithLovelace/Minted
 
 [Download Minted9 for Linux](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/releases/Minted9.tar.gz)
 
-If you'd like to track our ongoing dev progress feel free to check out our "loosely updated" Alpha Release project here: https://github.com/MadeWithLovelace/MintedWithLovelace/projects/1 and follow us on Twitter @MintedWithLove
+Feel free to follow along our development progress at https://github.com/MadeWithLovelace/MintedWithLovelace/projects/1 and for the most interactive and up-to-date information, resources, help and feedback feel free to join us on [Discord](https://discord.gg/2xEVRTSAeQ) and follow us on Twitter [@MintedWithLove](https://twitter.com/MintedWithLove)
 
 
 ### Notices
