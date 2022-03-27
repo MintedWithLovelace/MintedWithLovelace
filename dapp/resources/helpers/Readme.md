@@ -1,4 +1,4 @@
-## How To Setup a Cardano Node
+## Simple Cardano Full Node Setup Helper Scripts
 
 The following will allow you to (almost)automate the process of installing a Cardano full node for either Testnet or Mainnet.
 
