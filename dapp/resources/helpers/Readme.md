@@ -11,7 +11,7 @@ As part of the MintedWithLovelace project, these scripts can be used to easily s
 
 ### Node Setup Steps
 #### Step 1
-Before you run the script of your choice below, first run [prepInstall.sh](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/resources/helpers/prepSetup.sh)
+Before you run the script of your choice below, first run: [prepInstall.sh](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/resources/helpers/prepSetup.sh)
 
 #### Step 2
 Enter the appropriate command into your terminal for either mainnet or testnet:
@@ -40,8 +40,6 @@ echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
 echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc
 echo export NODE_HOME=$HOME/cardano-my-node >> $HOME/.bashrc
 echo export CARDANO_CLI=/usr/local/bin/cardano-cli >> $HOME/.bashrc
-# Replace the word testnet with mainnet in this line if you are doing this on a mainnet device:
-source $HOME/.bashrc
 echo export CARDANO_NODE_SOCKET_PATH="$NODE_HOME/db/socket" >> $HOME/.bashrc
 source $HOME/.bashrc
 sudo reboot now
