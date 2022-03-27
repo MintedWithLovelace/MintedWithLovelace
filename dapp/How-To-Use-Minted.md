@@ -172,6 +172,8 @@ After this, your campaign is setup and the dApp will exit. You can launch again 
 
 When the campaign Dashboard is opened, the auto campaign is not running necessarily (unless you launched it in the background). So payments received to a "paused" campaign like this, are not auto processed unless/until you either run the live campaign from within the Dashboard or from the command line. Because of this, it's important to be careful when managing the wallet if the campaign address has been shared, so as not to disturb any payments waiting to be processed. The wallet is segmented to help you know what payments are from your Funded wallet vs a user payment, etc.
 
+Minted has a simple fee structure which is 1 ADA per automint transaction, which goes to pay for development work and support other community efforts going forward. This fee is taken in realtime, there are no upfront fees or charges to use the dApp. Manual minting, royalty mints, and refunds do not incur fees.
+
 #### Further Help and Support
 
 To explore other features, scenarios, get help and support, etc, please join the [official MintedWithLovelace discord](https://discord.gg/2xEVRTSAeQ)
