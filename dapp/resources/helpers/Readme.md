@@ -1,8 +1,13 @@
 ## How To Setup a Cardano Node
 
-Based on the excellent guide on [CoinCashew](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node), these scripts will allow you to (almost)automate the process of installing a Cardano full node for either Testnet or Mainnet. This is not the same as a staking pool, which the CoinCashew guide goes on to cover from where these scripts leave off.
+The following will allow you to (almost)automate the process of installing a Cardano full node for either Testnet or Mainnet.
 
-As part of the MintedWithLovelace project, these scripts can be used to easily setup a Cardano Full Node, ready to run Minted. Learn more about the project and the Minted dApp in the [MintedWithLovelace Discord](https://discord.gg/2xEVRTSAeQ).
+*Note: This will setup a full node. To setup a staking node, you will need to perform additional steps which are outlined in the excellent [CoinCashew](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node) guide, from which our node setup has been derived.*
+
+As part of the MintedWithLovelace project, these scripts can be used to easily setup a Cardano Full Node, ready to run the Minted dApp. Learn more about the project and the Minted dApp in the [Official MintedWithLovelace Discord](https://discord.gg/2xEVRTSAeQ).
+
+### Before You Continue
+Please make sure your system meets the requirements and if this is a mainnet node, it's advised to take measures to secure your system.
 
 1. Install Debian 10+ or Ubuntu 18+ on a computer, VM, or VPS/Baremetal Server with at minimum 8 GB of RAM (16 GB is ideal).
 2. Once logged into your server, perform a little security "hardening" by following this guide: [Hardening an Ubuntu Server](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/part-i-installation/hardening-an-ubuntu-server)
