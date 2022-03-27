@@ -29,6 +29,7 @@ Enter the appropriate command into your terminal for either mainnet or testnet:
 
 For Mainnet
 ```
+echo -e "\r" >> $HOME/.bashrc
 echo export NODE_CONFIG=mainnet >> $HOME/.bashrc
 source $HOME/.bashrc
 
@@ -36,6 +37,7 @@ source $HOME/.bashrc
 
 For Testnet
 ```
+echo -e "\r" >> $HOME/.bashrc
 echo export NODE_CONFIG=testnet >> $HOME/.bashrc
 source $HOME/.bashrc
 
