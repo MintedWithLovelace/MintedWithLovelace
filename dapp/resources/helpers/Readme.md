@@ -10,26 +10,29 @@ As part of the MintedWithLovelace project, these scripts can be used to easily s
       (Alternatively you may also use the script as a step by step guide and issue each command by hand)
 
 ### PREREQS:
-Before you run the script of your choice below, first run the following in your terminal and reboot your device
+Step 1 - Before you run the script of your choice below, first run [prepInstall.sh](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/resources/helpers/prepSetup.sh)
 
-Replace the word "testnet" with "mainnet" if you are running the mainnet script next.
+Step 2 - Next, copy and paste the following into your terminal, and then reboot.
+
+*Replace the word "testnet" with "mainnet" in the first line below if you are running the mainnet script next.*
 
 ```
-# Replace the word testnet with mainnet in this line if you are doing this on a mainnet device:
-echo export NODE_CONFIG=testnet>> $HOME/.bashrc
+echo export NODE_CONFIG=testnet >> $HOME/.bashrc
 
 echo export TMPDIR=$HOME/.temp_mwl>> $HOME/.bashrc
+echo export TESTNET_MAGIC_NUM=1097911063 >> $HOME/.bashrc
 echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
-source $HOME/.bashrc
 echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc
 echo export NODE_HOME=$HOME/cardano-my-node >> $HOME/.bashrc
-source $HOME/.bashrc
 echo export CARDANO_CLI=/usr/local/bin/cardano-cli >> $HOME/.bashrc
-echo export TESTNET_MAGIC_NUM=1097911063 >> $HOME/.bashrc
+# Replace the word testnet with mainnet in this line if you are doing this on a mainnet device:
+source $HOME/.bashrc
 echo export CARDANO_NODE_SOCKET_PATH="$NODE_HOME/db/socket" >> $HOME/.bashrc
 source $HOME/.bashrc
+sudo reboot now
+
 ```
-Remember to reboot after these prereq commands before running the script.
+Remember to reboot after these prereq commands before running the script!
 
 ### For Testnet:
 https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/resources/helpers/setupTestNode.sh
