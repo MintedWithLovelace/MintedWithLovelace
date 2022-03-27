@@ -10,6 +10,12 @@ As part of the MintedWithLovelace project, these scripts can be used to easily s
       (Alternatively you may also use the script as a step by step guide and issue each command by hand)
 
 ### Node Setup Steps
+It's a good idea to update your system before you proceed. Do this with:
+```
+sudo apt update
+sudo apt upgrade -y
+```
+
 #### Step 1
 Before you run the script of your choice below, first run: [prepInstall.sh](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/resources/helpers/prepSetup.sh)
 
