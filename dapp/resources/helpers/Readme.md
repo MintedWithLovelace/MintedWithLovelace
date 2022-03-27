@@ -9,16 +9,31 @@ As part of the MintedWithLovelace project, these scripts can be used to easily s
 3. After your server is hardened, run the following Node Setup script for the network type of this system (mainnet or testnet) using the appropriate script from this repo. 
       (Alternatively you may also use the script as a step by step guide and issue each command by hand)
 
-### PREREQS:
-Step 1 - Before you run the script of your choice below, first run [prepInstall.sh](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/resources/helpers/prepSetup.sh)
+### Node Setup Steps
+#### Step 1
+Before you run the script of your choice below, first run [prepInstall.sh](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/resources/helpers/prepSetup.sh)
 
-Step 2 - Next, copy and paste the following into your terminal, and then reboot.
+#### Step 2
+Enter the appropriate command into your terminal for either mainnet or testnet:
 
-*Replace the word "testnet" with "mainnet" in the first line below if you are running the mainnet script next.*
+For Mainnet
+```
+echo export NODE_CONFIG=mainnet >> $HOME/.bashrc
+source $HOME/.bashrc
 
 ```
-echo export NODE_CONFIG=testnet >> $HOME/.bashrc
 
+For Testnet
+```
+echo export NODE_CONFIG=testnet >> $HOME/.bashrc
+source $HOME/.bashrc
+
+```
+
+#### Step 3
+Enter the following into your terminal and then reboot
+
+```
 echo export TMPDIR=$HOME/.temp_mwl>> $HOME/.bashrc
 echo export TESTNET_MAGIC_NUM=1097911063 >> $HOME/.bashrc
 echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc
@@ -34,12 +49,12 @@ sudo reboot now
 ```
 Remember to reboot after these prereq commands before running the script!
 
-### For Testnet:
-https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/resources/helpers/setupTestNode.sh
+#### Step 4
+Finally, run [setupNode.sh](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/resources/helpers/setupNode.sh)
 
-### For Mainnet:
-https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/resources/helpers/setupMainNode.sh
+This may take a while to complete. After it finishes, check for any errors in the terminal output and report them in our Discord.
 
-After the script completes it will have attempted to launch cardano-node. Check for any errors (there will be some warnings this is normal) and use ./gLiveView to see the live status of the sync/node.
+
+After the script completes it will have attempted to launch cardano-node. Use ./gLiveView to see the live status of the sync/node.
 
 After syncing has reached 100%, run Minted from any folder in your server, preferably a user, not root, and refer to the pinned message in the #_refinery_ channel before setting up your campaign, for a brief rundown of how to use the dApp. If you are not in the Refinery and would like to test the dApp out, send me a DM and let me know and I'll get you setup.
