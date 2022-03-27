@@ -6,8 +6,8 @@ As part of the MintedWithLovelace project, these scripts can be used to easily s
 
 1. Install Debian 10+ or Ubuntu 18+ on a computer, VM, or VPS/Baremetal Server with at minimum 8 GB of RAM (16 GB is ideal).
 2. Once logged into your server, perform a little security "hardening" by following this guide: [Hardening an Ubuntu Server](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/part-i-installation/hardening-an-ubuntu-server)
-3. After your server is hardened, run the following Node Setup script for the network type of this system (mainnet or testnet) using the appropriate script from this repo. 
-      (Alternatively you may also use the script as a step by step guide and issue each command by hand)
+
+After your server is hardened, follow the steps below for the network type (testnet or mainnet) you are setting up.
 
 ### Node Setup Steps
 It's a good idea to update your system before you proceed. Do this with:
