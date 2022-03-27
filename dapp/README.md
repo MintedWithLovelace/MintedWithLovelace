@@ -1,7 +1,7 @@
 # MintedWithLovelace dApp 
 
 ### Minted Alpha 9 - Current Release
-Please refer to ["How To Use Minted"](https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/How-To-Use-Minted.md) to get started in using the Minted9 dApp.
+Please refer to ["How To Use Minted"](https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/How-To-Use-Minted.md) to get started in using the Minted9 dApp. To setup a full node for use with Minted, check out our easy [Cardano Node Scripted Setup](https://github.com/MadeWithLovelace/MintedWithLovelace/tree/main/dapp/resources/helpers).
 
 [Download Minted9 for Linux](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/releases/Minted9.tar.gz)
 
