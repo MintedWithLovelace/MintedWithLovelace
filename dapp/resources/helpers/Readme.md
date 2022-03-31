@@ -4,7 +4,7 @@ The following will allow you to (almost)automate the process of installing a Car
 
 *Note: This will setup a full node. To setup a staking node, you will need to perform additional steps which are outlined in the excellent [CoinCashew](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node) guide, from which our node setup has been derived.*
 
-As part of the MintedWithLovelace project, these scripts can be used to easily setup a Cardano Full Node, ready to run the Minted dApp. Learn more about the project and the Minted dApp in the [Official MintedWithLovelace Discord](https://discord.gg/2xEVRTSAeQ).
+As part of the MintedWithLovelace project, these scripts can be used to easily setup a Cardano Full Node, ready to run the Minted dApp. Learn more about the project and the Minted dApp in the [Official MintedWithLovelace Discord](https://discord.gg/HzKvRWPqy5).
 
 ### Before You Continue
 Please make sure your system meets the requirements and if this is a mainnet node, it's advised to take measures to secure your system.
