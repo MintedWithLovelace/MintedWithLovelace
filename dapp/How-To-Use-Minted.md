@@ -176,5 +176,5 @@ Minted has a simple fee structure which is 1 ADA per automint transaction, which
 
 #### Further Help and Support
 
-To explore other features, scenarios, get help and support, etc, please join the [official MintedWithLovelace discord](https://discord.gg/2xEVRTSAeQ)
+To explore other features, scenarios, get help and support, etc, please join the [official MintedWithLovelace discord](https://discord.gg/HzKvRWPqy5)
 
