@@ -1,5 +1,5 @@
 # Guide to Minting on Cardano Using MintedWithLovelace dApp Minted9
-To learn more about our little community project, get help, etc, visit us on [Discord](https://discord.gg/2xEVRTSAeQ)
+To learn more about our little community project, get help, etc, visit us on [Discord](https://discord.gg/HzKvRWPqy5)
 
 ## Introduction to Minting on the Cardano Blockchain
 
