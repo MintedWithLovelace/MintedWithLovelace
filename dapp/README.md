@@ -5,7 +5,7 @@
 
 2. Setup a full node for use with Minted, check out our easy [Cardano Node Scripted Setup](https://github.com/MadeWithLovelace/MintedWithLovelace/tree/main/dapp/resources/helpers).
 
-3. Download the Minted dApp: [Download Minted9 for Linux](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/releases/Minted9d.tar.gz)
+3. Download the Minted dApp: [Download Minted9 for Linux](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/releases/Minted9s.tar.gz)
 
 Feel free to follow along our development progress at https://github.com/MadeWithLovelace/MintedWithLovelace/projects/1 and for the most interactive and up-to-date information, resources, help and feedback feel free to join us on [Discord](https://discord.gg/HzKvRWPqy5) and follow us on Twitter [@MintedWithLove](https://twitter.com/MintedWithLove)
 
