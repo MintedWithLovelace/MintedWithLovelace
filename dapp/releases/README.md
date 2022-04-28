@@ -1,5 +1,5 @@
 # MintedWithLovelace dApp Releases
-### Current Stable Release: Minted v0.0.9-Alpha "Minted9"
+### Current Stable Release: Minted v0.0.9s-Alpha "Minted9s" - Includes Swappables
 
-[Download Minted9](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/releases/Minted9s.tar.gz)
+[Download Minted9s](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/releases/Minted9s.tar.gz)
 
