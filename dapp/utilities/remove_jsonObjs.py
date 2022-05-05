@@ -10,6 +10,9 @@ for file in dirs:
     jsondata = json.loads(jsondata)
     alterjson = dict(jsondata)
     for topkey in jsondata['721']['POLICY_ID'].keys():
+        for check in jsondata['721']['POLICY_ID'][topkey]:
+            if '<' in check:
+                print('Found label with brackets: ', check)
         for key in [key for key in jsondata['721']['POLICY_ID'][topkey] if key == 'files' or key == 'mediaType']: del jsondata['721']['POLICY_ID'][topkey][key]
     with open(whatdir + file, 'w') as jsonout:
         jsonout.write(json.dumps(alterjson, indent=4))
