@@ -3,7 +3,7 @@
 ### Minted Alpha 9 - Current Release
 1. Refer to ["How To Use Minted"](https://github.com/MadeWithLovelace/MintedWithLovelace/blob/main/dapp/How-To-Use-Minted.md) to get started in using the Minted9 dApp and for detailed instructions and information.
 
-2. Setup a full node for use with Minted, check out our easy [Cardano Node Scripted Setup](https://github.com/MadeWithLovelace/MintedWithLovelace/tree/main/dapp/resources/helpers).
+2. Setup a full node for use with Minted, check out the easy [Cardano Node Setup](https://github.com/MadeWithLovelace/MintedWithLovelace-smithy/tree/main/cardano-node-setup) found in the [MintedWithLovelace smithy repository](https://github.com/MadeWithLovelace/MintedWithLovelace-smithy), which also contains other helpful tools for CNFT JSON prep.
 
 3. Download the Minted dApp: [Download Minted9 for Linux](https://github.com/MadeWithLovelace/MintedWithLovelace/raw/main/dapp/releases/Minted9s.tar.gz)
 
