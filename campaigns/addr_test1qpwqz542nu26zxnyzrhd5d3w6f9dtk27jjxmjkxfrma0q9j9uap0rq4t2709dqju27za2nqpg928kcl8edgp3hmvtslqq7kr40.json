@@ -1,0 +1,48 @@
+{
+  "addr_test1qpwqz542nu26zxnyzrhd5d3w6f9dtk27jjxmjkxfrma0q9j9uap0rq4t2709dqju27za2nqpg928kcl8edgp3hmvtslqq7kr40": 
+  {
+    "type": 2,
+    "expectada": 0,
+    "min_watch": 6000000,
+    "dyn_mintq_max": 20000,
+    "wlenabled": false,
+    "wlone": false,
+    "blcount": 0,
+    "nft_addr": true,
+    "mint_per_tx": "",
+    "nft_data": ["", 1, "", [80000000, 80000000], [0, 0], 2, 2, ""],
+    "royalty": [false, false, "", "", 0],
+    "nft_minted": false,
+    "campaign_format": 0,
+    "campaign_begin": [0, 0],
+    "swap_data": [1000000, 100, true, false, "14a2ad252f489f219317982b8823115251e82446496bc95290e24d7f|54554445", "14a2ad252f489f219317982b8823115251e82446496bc95290e24d7f|54554445", "", "", 1],
+    "blocktime": "",
+    "auctionend": [0, 0],
+    "sc_name": "",
+    "tokenid": "",
+    "tokenname": "",
+    "price": 0,
+    "tokenqty": "",
+    "returnada": 2000000,
+    "return_ada_each": false,
+    "deposit_amnt": 0,
+    "recurring": false,
+    "sc_ada_amnt": 0,
+    "wt_ada_amnt": "",
+    "auto_refund": false,
+    "fee_to_charge": "",
+    "swap_type": 1,
+    "admin_addrs": [
+      [
+        "addr_test1qpwqz542nu26zxnyzrhd5d3w6f9dtk27jjxmjkxfrma0q9j9uap0rq4t2709dqju27za2nqpg928kcl8edgp3hmvtslqq7kr40",
+        "addr_test1qpwqz542nu26zxnyzrhd5d3w6f9dtk27jjxmjkxfrma0q9j9uap0rq4t2709dqju27za2nqpg928kcl8edgp3hmvtslqq7kr40"
+      ],
+      [
+        "addr_test1qpwqz542nu26zxnyzrhd5d3w6f9dtk27jjxmjkxfrma0q9j9uap0rq4t2709dqju27za2nqpg928kcl8edgp3hmvtslqq7kr40",
+        "addr_test1qpwqz542nu26zxnyzrhd5d3w6f9dtk27jjxmjkxfrma0q9j9uap0rq4t2709dqju27za2nqpg928kcl8edgp3hmvtslqq7kr40"
+      ]
+    ],
+    "tx_meta": "",
+    "patient_sensei": true
+  }
+}
