@@ -1,6 +1,9 @@
 # Guide to Minting on Cardano Using MintedWithLovelace dApp Minted9
 To learn more about our little community project, get help, etc, visit us on [Discord](https://discord.gg/HzKvRWPqy5)
 
+NOTE: Parts of this guide are out of date, we are working on it, in the meantime the most up-to-date info is in our discord server
+
+
 ## Introduction to Minting on the Cardano Blockchain
 
 An NFT, or any native token being minted on Cardano, has the following attributes:
