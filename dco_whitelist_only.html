@@ -439,20 +439,29 @@
         </g>
       </svg>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script>
+          function copyToClipboard(element) {
+              var $temp = $("<input>");
+              $("body").append($temp);
+              $temp.val($(element).text()).select();
+              document.execCommand("copy");
+              $temp.remove();
+}
+       </script>
     </header>
     <pre id="credit"><a href="https://www.instagram.com/mywoollydsgnz/" target="_blank">a woolly design</a></pre>
     <main>
       <pre style="font-size:22px;text-align:center;color:#40ffef;margin:0;">Official DCO Seating Event Payment Address (whitelisted)</pre>
-      <a class="progress" href="https://discord.gg/HzKvRWPqy5" target="_blank">
+      <button class="progress" onclick="copyToClipboard('#dco_addr')">
         <div class="progress-container">
           <div class="progress-front">
-            <span>addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</span>
+            <span id="dco_addr">addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</span>
           </div>
           <div class="progress-back">
             <span>click to copy</span>
           </div>
         </div>
-      </a>
+      </button>
       <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;">Text Only for Manually Copying:</pre>
       <pre style="font-size:22px;text-align:center;color:#40ffef;margin:0;">addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</pre>
       <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;">Please confirm the above address matches the address in the whitelist discord channel for the DCO. There is NO OTHER payment address for the DCO Seating Event.</pre>
