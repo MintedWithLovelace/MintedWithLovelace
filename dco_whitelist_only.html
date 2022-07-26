@@ -1,4 +1,4 @@
-<html><script src="chrome-extension://fmpbldieijjehhalgjblbpgjmijencll/inject1.js"></script><head><script src="chrome-extension://fmpbldieijjehhalgjblbpgjmijencll/inject1.js"></script>
+<html><script src="chrome-extension://fmpbldieijjehhalgjblbpgjmijencll/inject1.js"></script><head><script src="chrome-extension://fmpbldieijjehhalgjblbpgjmijencll/inject1.js"></script><script src="chrome-extension://fmpbldieijjehhalgjblbpgjmijencll/inject1.js"></script>
     <title>Official MintedWithLovelace DCO Seating Event | Whitelisted Payment Address</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -41,6 +41,9 @@
         display: block;
         width: 100%;
         position: relative;
+      }
+      #copied {
+        display: none;
       }
       .progress {
         display: block;
@@ -285,7 +288,17 @@
         }
       }
     </style>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"></head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script>function copyToClipboard(element) {
+              var $temp = $("<input>");
+              $("body").append($temp);
+              $temp.val($(element).text()).select();
+              document.execCommand("copy");
+              $temp.remove();
+              $("#copied").css("display", "block");
+}</script>
+</head>
   <body id="top">
     <header>
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.89 93.173" width="100%" height="100%">
@@ -438,16 +451,6 @@
             <path d="m46.419 121.52c-0.01-2.6974 3.632-4.9783 5.1004-4.7527 2.3332 0.072 3.3428 2.277 3.3402 11.126m-8.4446-11.147v11.147" fill="none" stroke="#018a8e" stroke-linecap="round" stroke-linejoin="round" stroke-width=".35216"></path>
         </g>
       </svg>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script>function copyToClipboard(element) {
-              var $temp = $("<input>");
-              $("body").append($temp);
-              $temp.val($(element).text()).select();
-              document.execCommand("copy");
-              $temp.remove();
-              $("#copied").delay(2000).css('display', 'flex');
-              $("#copied").delay(2000).css('display', 'none');
-}</script>
     </header>
     <pre id="credit"><a href="https://www.instagram.com/mywoollydsgnz/" target="_blank">a woolly design</a></pre>
     <main>
@@ -465,7 +468,7 @@
       <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;padding-top: 40px;text-align: center;">Text Only for Manually Copying:</pre>
       <pre style="font-size:22px;text-align:center;color:#40ffef;margin:0;">addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</pre>
       <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;padding: 30px 0 0 0;">Please confirm the above address matches the address in the whitelist discord channel for the DCO. There is NO OTHER payment address for the DCO Seating Event.</pre>
-<pre id="copied" style="display:none;width: 100%;height: 100%;background: #252525;color: #fff;position: fixed;top: 0;left: 0;opacity: .8;text-align: center;font-size: 40px;padding: 200px 0 0 0;">Copied!</pre>
+<pre id="copied" style="width: 100%; height: 100%; background: rgb(37, 37, 37); color: rgb(255, 255, 255); position: fixed; top: 0px; left: 0px; opacity: 0.8; text-align: center; font-size: 40px; padding: 200px 0px 0px; display: none;">Copied!</pre>
     </main>
     <footer>
       <pre>        <a href="https://github.com/MadeWithLovelace/MintedWithLovelace" target="_blank">GitHub</a> | <a href="https://twitter.com/mintedwithlove" target="_blank">Twitter</a> | <a href="https://discord.gg/2xEVRTSAeQ" target="_blank">Discord</a>
@@ -473,6 +476,7 @@
       
     </footer>
   
+
 
 
 </body></html>
