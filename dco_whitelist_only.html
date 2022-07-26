@@ -1,4 +1,4 @@
-<html><script src="chrome-extension://fmpbldieijjehhalgjblbpgjmijencll/inject1.js"></script><head>
+<html><script src="chrome-extension://fmpbldieijjehhalgjblbpgjmijencll/inject1.js"></script><head><script src="chrome-extension://fmpbldieijjehhalgjblbpgjmijencll/inject1.js"></script>
     <title>Official MintedWithLovelace DCO Seating Event | Whitelisted Payment Address</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -285,7 +285,7 @@
         }
       }
     </style>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"></head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"></head>
   <body id="top">
     <header>
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.89 93.173" width="100%" height="100%">
@@ -439,20 +439,20 @@
         </g>
       </svg>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script>
-          function copyToClipboard(element) {
+      <script>function copyToClipboard(element) {
               var $temp = $("<input>");
               $("body").append($temp);
               $temp.val($(element).text()).select();
               document.execCommand("copy");
               $temp.remove();
-}
-       </script>
+              $("#copied").delay(2000).css('display', 'flex');
+              $("#copied").delay(2000).css('display', 'none');
+}</script>
     </header>
     <pre id="credit"><a href="https://www.instagram.com/mywoollydsgnz/" target="_blank">a woolly design</a></pre>
     <main>
-      <pre style="font-size:22px;text-align:center;color:#40ffef;margin:0;">Official DCO Seating Event Payment Address (whitelisted)</pre>
-      <button class="progress" onclick="copyToClipboard('#dco_addr')">
+      <pre style="font-size:22px;text-align:center;color:#40ffef;margin: 30px;">Whitelisted DCO Seating Event Payment Address</pre>
+      <div class="progress" onclick="copyToClipboard('#dco_addr')">
         <div class="progress-container">
           <div class="progress-front">
             <span id="dco_addr">addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</span>
@@ -461,17 +461,18 @@
             <span>click to copy</span>
           </div>
         </div>
-      </button>
-      <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;">Text Only for Manually Copying:</pre>
+      </div>
+      <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;padding-top: 40px;text-align: center;">Text Only for Manually Copying:</pre>
       <pre style="font-size:22px;text-align:center;color:#40ffef;margin:0;">addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</pre>
-      <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;">Please confirm the above address matches the address in the whitelist discord channel for the DCO. There is NO OTHER payment address for the DCO Seating Event.</pre>
+      <pre style="display:block;margin:0 auto 30px auto;color:#fff;max-width:600px;padding: 30px 0 0 0;">Please confirm the above address matches the address in the whitelist discord channel for the DCO. There is NO OTHER payment address for the DCO Seating Event.</pre>
+<pre id="copied" style="display:none;width: 100%;height: 100%;background: #252525;color: #fff;position: fixed;top: 0;left: 0;opacity: .8;text-align: center;font-size: 40px;padding: 200px 0 0 0;">Copied!</pre>
     </main>
     <footer>
       <pre>        <a href="https://github.com/MadeWithLovelace/MintedWithLovelace" target="_blank">GitHub</a> | <a href="https://twitter.com/mintedwithlove" target="_blank">Twitter</a> | <a href="https://discord.gg/2xEVRTSAeQ" target="_blank">Discord</a>
       </pre>
-      <pre>        Support MintedWithLovelace:<a target="_BLANK" href="https://cardanoscan.io/address/addr1vycdl8t3f92zcyhwedcvcaayn4wmf5f09s2d9dsd286qm3crdmgc6">addr1vycdl8t3f92zcyhwedcvcaayn4wmf5f09s2d9dsd286qm3crdmgc6</a>
-      </pre>
+      
     </footer>
   
+
 
 </body></html>
