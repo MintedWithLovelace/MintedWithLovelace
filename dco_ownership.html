@@ -1,5 +1,5 @@
 <html>
-    <title>Official MintedWithLovelace DCO Seating Event | Whitelisted Payment Address</title>
+    <head><title>Official MintedWithLovelace DCO Seating Event | Whitelisted Payment Address</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       html {
@@ -56,6 +56,17 @@
         margin: 0 auto;
         background: #40ffef;
       }
+      .dco_data {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 40px auto;
+        max-width: unset;
+        font-family: monospace;
+        font-size: 1.2rem;
+        color: #fff;
+        transition: 0.3s all;
+      }
       .progress {
         display: block;
         width: 310px;
@@ -64,6 +75,14 @@
         max-width: 390px;
         box-shadow: unset;
         transition: 0.3s all;
+          
+          margin: 20px auto;
+    display: block;
+    width: 120px;
+    height: 40px;
+    font-family: monospace;
+    font-size: 1rem;
+    text-transform: lowercase;
       }
       .progress-container {
         position:relative;
@@ -307,7 +326,7 @@
               $("#copied").css("display", "block");
               $("#copied").delay(2000).fadeOut();
 }</script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"></head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"></head>
   <body id="top">
     <header>
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.89 93.173" width="100%" height="100%">
@@ -463,24 +482,32 @@
     </header>
     <pre id="credit"><a href="https://www.instagram.com/mywoollydsgnz/" target="_blank">a woolly design</a></pre>
     <main>
-      <pre style="font-size:22px;text-align:center;color:#40ffef;margin: 30px;">Whitelisted DCO Seating Event Payment Address</pre>
-      <pre style="display:block;margin: 0 auto 0 auto;color:#fff;max-width:600px;text-align: center;">Click to Auto Copy:</pre>
-<div class="progress" onclick="copyToClipboard('#dco_addr')">
-        <div class="progress-container">
-          <div class="progress-front">
-            
-<span id="dco_addr">addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</span>
-          </div>
-            <pre id="copied">Copied!</pre>
-        </div>
-      </div>
-      <pre style="display:block;margin: 0 auto 10px;color:#fff;max-width:600px;padding-top: 40px;text-align: center;">Text Only for Manually Copying:</pre>
-      <pre style="display: block;text-align:center;color:#40ffef;inline-size: 300px;overflow-wrap: break-word;margin: 0 auto;">addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</pre>
-      <pre style="display:block;margin: 0 auto 10px;color:#fff;max-width:600px;padding-top: 20px;text-align: center;">Please confirm the address above and the address you paste, matches the address as visible in the discord whitelist channel!</pre>  
+      <pre style="font-size:22px;text-align:center;color:#40ffef;margin: 30px;">DCO Seat Ownership Data</pre>
+      
+<div class="dco_data">
+    <div>
+      <span>Total DCOSeat Sizes: </span><span class="dco_nums" id="total"></span>
+    </div>
+    <div>
+      <span>DCOSeat Number:</span>
+      <select name="mintedseats" id="minted_seats">
+         <option name="default" value="0.000">~ Select a Seat ~</option>
+      </select>
+    </div>
+    <div>
+      <span>DCOSeat Size: </span><span class="dco_nums" id="my_seat_val"></span>
+    </div>
+    <div>
+      <span>DCOSeat Ownership: </span><span class="dco_nums" id="my_share"></span>
+    </div>
+    <div>
+      <span><button class="progress" id="refresh">Refresh</button></span>
+    </div>
+</div>
     </main>
     <footer>
-      <pre>
-      <a href="https://github.com/MadeWithLovelace/MintedWithLovelace" target="_blank">GitHub</a> | <a href="https://twitter.com/mintedwithlove" target="_blank">Twitter</a> | <a href="https://discord.gg/2xEVRTSAeQ" target="_blank">Discord</a>
+      <pre>      <a href="https://github.com/MadeWithLovelace/MintedWithLovelace" target="_blank">GitHub</a> | <a href="https://twitter.com/mintedwithlove" target="_blank">Twitter</a> | <a href="https://discord.gg/2xEVRTSAeQ" target="_blank">Discord</a>
       </pre>
     </footer>
+
 </body></html>
