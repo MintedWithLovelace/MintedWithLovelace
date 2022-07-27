@@ -315,86 +315,88 @@
         }
       }
     </style>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script>
-        var totalSeats = '0.000';
-        var policyID = '0db17bcab4abb013b666faf42d0d148ea25bafaa894b9f3b8163f6e1';
-        var net = 'mainnet';
-        var p_a = 'vI9089cV29';
-        var p_b = 'dJudlrdDcFqmBrqfqvqMF0';
-        var api_uri = 'https://cardano-mainnet.blockfrost.io/api/v0/assets/'
-        var getTotal = true;
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        jQuery( document ).ready(function() {
+            var totalSeats = '0.000';
+            var policyID = '0db17bcab4abb013b666faf42d0d148ea25bafaa894b9f3b8163f6e1';
+            var net = 'mainnet';
+            var p_a = 'vI9089cV29';
+            var p_b = 'dJudlrdDcFqmBrqfqvqMF0';
+            var api_uri = 'https://cardano-mainnet.blockfrost.io/api/v0/assets/'
+            var getTotal = true;
 
-        function get_asset_meta(assetId){
-            totalSeats = '0.000'
-          return jQuery.ajax({
-            url: api_uri + assetId,
-            async: true,
-            beforeSend: function(xhr) {
-              xhr.setRequestHeader('project_id', net+p_a+p_b)
-            },
-            success: function(data){
-              thisSeatName = convertFromHex(data['asset_name'])
-              thisSeatSize = parseFloat(data['onchain_metadata']['Seat Size']).toFixed(3).toLocaleString();
-              if( $('#' + thisSeatName).length ){
-                jQuery('#' + thisSeatName).val(thisSeatSize)
-                    }
-              else{
-                jQuery('#minted_seats').append('<option value="' + thisSeatSize + '" id="' + thisSeatName + '">' + thisSeatName + '</option>');
-              }
-              totalSeats = (parseFloat(totalSeats) + parseFloat(thisSeatSize)).toFixed(3).toLocaleString();
-              jQuery('#total').html(totalSeats);
-              var sel = jQuery('#minted_seats');
-              var selected = sel.val();
-              var opts_list = sel.find('option');
-              opts_list.sort(function(a, b) { return jQuery(a).text() > jQuery(b).text() ? 1 : -1; });
-              sel.html('').append(opts_list);
-              sel.val(selected);
+            function get_asset_meta(assetId){
+                totalSeats = '0.000'
+              return jQuery.ajax({
+                url: api_uri + assetId,
+                async: true,
+                beforeSend: function(xhr) {
+                  xhr.setRequestHeader('project_id', net+p_a+p_b)
+                },
+                success: function(data){
+                  thisSeatName = convertFromHex(data['asset_name'])
+                  thisSeatSize = parseFloat(data['onchain_metadata']['Seat Size']).toFixed(3).toLocaleString();
+                  if( $('#' + thisSeatName).length ){
+                    jQuery('#' + thisSeatName).val(thisSeatSize)
+                        }
+                  else{
+                    jQuery('#minted_seats').append('<option value="' + thisSeatSize + '" id="' + thisSeatName + '">' + thisSeatName + '</option>');
+                  }
+                  totalSeats = (parseFloat(totalSeats) + parseFloat(thisSeatSize)).toFixed(3).toLocaleString();
+                  jQuery('#total').html(totalSeats);
+                  var sel = jQuery('#minted_seats');
+                  var selected = sel.val();
+                  var opts_list = sel.find('option');
+                  opts_list.sort(function(a, b) { return jQuery(a).text() > jQuery(b).text() ? 1 : -1; });
+                  sel.html('').append(opts_list);
+                  sel.val(selected);
+                }
+              });
             }
-          });
-        }
-        function get_assets(policyID){
-            jQuery.ajax({
-            url: api_uri + 'policy/' + policyID,
-            async: false,
-            beforeSend: function(xhr){
-                xhr.setRequestHeader('project_id', net+p_a+p_b)
-              },
-            success: function(data){
-                var totalSeats;
-                jQuery.each(data, function(index, value) {
-                get_asset_meta(value['asset'], true)
-                    });
+            function get_assets(policyID){
+                jQuery.ajax({
+                url: api_uri + 'policy/' + policyID,
+                async: false,
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader('project_id', net+p_a+p_b)
+                  },
+                success: function(data){
+                    var totalSeats;
+                    jQuery.each(data, function(index, value) {
+                    get_asset_meta(value['asset'], true)
+                        });
+                }
+              });
             }
-          });
-        }
-        function convertFromHex(hex) {
-            var hex = hex.toString();
-            var str = '';
-            for (var i = 0; i < hex.length; i += 2)
-                str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
-            return str;
-        }
-        function convertToHex(str) {
-            var hex = '';
-            for(var i=0;i<str.length;i++) {
-                hex += ''+str.charCodeAt(i).toString(16);
+            function convertFromHex(hex) {
+                var hex = hex.toString();
+                var str = '';
+                for (var i = 0; i < hex.length; i += 2)
+                    str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+                return str;
             }
-            return hex;
-        }
-        get_assets(policyID);
-        jQuery('#minted_seats').on('change', function(){
-          console.log('youvchanged');
-          totalsget = jQuery('#total').html();
-          myseatget = jQuery(this).val()
-          jQuery('#my_seat_val').html(myseatget);
-          myshare = (parseFloat(myseatget) / parseFloat(totalsget)).toFixed(3).toLocaleString();
-          jQuery('#my_share').html('~' + (parseFloat(myshare) * 100).toFixed(2).toLocaleString() + '%');
-        });
-        jQuery('#refresh').click(function(){
-            console.log('clicked');
+            function convertToHex(str) {
+                var hex = '';
+                for(var i=0;i<str.length;i++) {
+                    hex += ''+str.charCodeAt(i).toString(16);
+                }
+                return hex;
+            }
             get_assets(policyID);
+            jQuery('#minted_seats').on('change', function(){
+              console.log('youvchanged');
+              totalsget = jQuery('#total').html();
+              myseatget = jQuery(this).val()
+              jQuery('#my_seat_val').html(myseatget);
+              myshare = (parseFloat(myseatget) / parseFloat(totalsget)).toFixed(3).toLocaleString();
+              jQuery('#my_share').html('~' + (parseFloat(myshare) * 100).toFixed(2).toLocaleString() + '%');
+            });
+            jQuery('#refresh').on('click', function(){
+                console.log('clicked');
+                get_assets(policyID);
+            });
         });
       </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"></head>
