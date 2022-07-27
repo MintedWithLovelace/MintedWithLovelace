@@ -346,7 +346,7 @@
               var sel = jQuery('#minted_seats');
               var selected = sel.val();
               var opts_list = sel.find('option');
-              opts_list.sort(function(a, b) { return $(a).text() > $(b).text() ? 1 : -1; });
+              opts_list.sort(function(a, b) { return jQuery(a).text() > jQuery(b).text() ? 1 : -1; });
               sel.html('').append(opts_list);
               sel.val(selected);
             }
