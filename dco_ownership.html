@@ -320,7 +320,9 @@
       <script>
         var totalSeats = '0.000';
         var policyID = '0db17bcab4abb013b666faf42d0d148ea25bafaa894b9f3b8163f6e1';
-        var pId = 'mainnetvI9089cV29dJudlrdDcFqmBrqfqvqMF0';
+        var net = 'mainnet';
+        var p_a = 'vI9089cV29';
+        var p_b = 'dJudlrdDcFqmBrqfqvqMF0';
         var api_uri = 'https://cardano-mainnet.blockfrost.io/api/v0/assets/'
         var getTotal = true;
 
@@ -330,7 +332,7 @@
             url: api_uri + assetId,
             async: true,
             beforeSend: function(xhr) {
-              xhr.setRequestHeader('project_id', pId)
+              xhr.setRequestHeader('project_id', net+p_a+p_b)
             },
             success: function(data){
               thisSeatName = convertFromHex(data['asset_name'])
@@ -357,7 +359,7 @@
             url: api_uri + 'policy/' + policyID,
             async: false,
             beforeSend: function(xhr){
-                xhr.setRequestHeader('project_id', pId)
+                xhr.setRequestHeader('project_id', net+p_a+p_b)
               },
             success: function(data){
                 var totalSeats;
