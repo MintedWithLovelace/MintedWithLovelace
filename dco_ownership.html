@@ -407,15 +407,15 @@
               console.log('youvchanged');
               totalsget = jQuery('#total').html();
               myseatget = jQuery(this).val()
-              jQuery('#my_seat_val').html(myseatget);
+              jQuery('#seat_size').html(myseatget);
               myshare = (parseFloat(myseatget) / parseFloat(totalsget)).toFixed(3).toLocaleString();
-              jQuery('#my_share').html('~' + (parseFloat(myshare) * 100).toFixed(2).toLocaleString() + '%');
+              jQuery('#seat_ownership').html('~' + (parseFloat(myshare) * 100).toFixed(2).toLocaleString() + '%');
             });
             jQuery('#refresh').on('click', function(){
                 console.log('clicked');
                 jQuery('#minted_seats option:contains("~ Select a Seat ~")').prop('selected', true);
-                jQuery('#my_seat_val').html('0');
-                jQuery('#my_share').html('0');
+                jQuery('#seat_size').html('0');
+                jQuery('#seat_ownership').html('0');
                 get_assets(policyID);
             });
         });
@@ -589,10 +589,10 @@
       </select>
     </div>
     <div>
-      <span>Seat Size: </span><span class="dco_nums" id="my_seat_val"></span>
+      <span>Seat Size: </span><span class="dco_nums" id="seat_size"></span>
     </div>
     <div>
-      <span>Ownership: </span><span class="dco_nums" id="my_share"></span>
+      <span>Ownership: </span><span class="dco_nums" id="seat_ownership"></span>
     </div>
     <div>
       <span><button class="progress" id="refresh">Refresh</button></span>
