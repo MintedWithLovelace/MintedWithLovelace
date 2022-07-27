@@ -395,6 +395,9 @@
             });
             jQuery('#refresh').on('click', function(){
                 console.log('clicked');
+                jQuery('#minted_seats option:contains("~ Select a Seat ~")').prop('selected', true);
+                jQuery('#my_seat_val').html('0');
+                jQuery('#my_share').html('0');
                 get_assets(policyID);
             });
         });
