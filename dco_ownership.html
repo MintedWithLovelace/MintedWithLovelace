@@ -383,6 +383,7 @@
         }
         get_assets(policyID);
         jQuery('#minted_seats').on('change', function(){
+          console.log('youvchanged');
           totalsget = jQuery('#total').html();
           myseatget = jQuery(this).val()
           jQuery('#my_seat_val').html(myseatget);
