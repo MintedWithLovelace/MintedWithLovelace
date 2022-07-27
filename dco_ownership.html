@@ -392,8 +392,8 @@
           myshare = (parseFloat(myseatget) / parseFloat(totalsget)).toFixed(3).toLocaleString();
           jQuery('#my_share').html('~' + (parseFloat(myshare) * 100).toFixed(2).toLocaleString() + '%');
         });
-
         jQuery('#refresh').click(function(){
+            console.log('clicked');
             get_assets(policyID);
         });
       </script>
