@@ -1,0 +1,486 @@
+<html>
+    <title>Official MintedWithLovelace DCO Seating Event | Whitelisted Payment Address</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color:#162f33;
+        max-width:700px;
+        margin:0 auto;
+        padding:3%;
+        color:#aaa;
+      }
+      a {
+        color:#40ffef;
+        text-decoration:none;
+      }
+      a:hover {
+        color:#fff;
+        transition:all ease-in-out 0.4s;
+      }
+      header {
+        display:block;
+        width:100%;
+        height:calc(100vw*.36);
+        max-height:300px;
+        max-width:680px;
+        margin:0 auto;
+      }
+      pre {
+        white-space: normal;
+      }
+      #credit {
+        display: block;
+        margin: -18px 0 40px;
+        font-size: 10px;
+        padding-left: 30px;
+      }
+      main {
+        display: block;
+        width: 100%;
+        position: relative;
+      }
+      #copied {
+        display: none;
+        height: 60px;
+        color: rgb(54 54 54);
+        text-align: center;
+        font-size: 40px;
+        padding: 20px 0 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 310px;
+        margin: 0 auto;
+        background: #40ffef;
+      }
+      .progress {
+        display: block;
+        width: 310px;
+        height: 80px;
+        margin: 0 auto;
+        max-width: 390px;
+        box-shadow: unset;
+        transition: 0.3s all;
+      }
+      .progress-container {
+        position:relative;
+        display: block;
+        height: 80px;
+        width: 100%;
+        background-color: #0b5759;
+        margin: 20px auto;
+      }
+      .progress-front {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background: #0b5759;
+        filter: unset;
+        transition: 0.3s all;
+      }
+      .progress-front > span {
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-color: #40ffef;
+        text-align: center;
+        color: #162f33;
+        font-family: sans;
+        position: absolute;
+        line-height: unset;
+        padding: 20px 5px 0;
+        inline-size: 300px;
+        height: 60px;
+        overflow-wrap: break-word;
+      }
+      .progress-back {
+        display: block;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        line-height: 40px;
+        color: #162f33;
+        font-family: sans;
+        position: absolute;
+        background: transparent;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: 0.3s all;
+      }
+      .progress-back > span {
+        
+      }
+      .progress:hover {
+        box-shadow: 0 0 1px 1px #79d8e8;
+        transition: 0.3s all;
+      }
+      .cards {
+        display: inline-block;
+        max-width: 600px;
+        margin: 0 auto;
+        color: #fff;
+        background-color: #008e92ff;
+        padding: 40px;
+        list-style-type: square;
+        position: relative;
+        box-shadow: 0px 0px 24px -10px #09191c;
+        padding-top: 16px;
+      }
+      .card {
+        position: relative;
+        margin: 0 0 40px 0;
+        width: 100%;
+        float: left;
+        display: block;
+        font-size: 16px;
+        min-height: 124px;
+      }
+      .banner {
+        height: 40px;
+        display: block;
+        z-index: 3;
+        position: absolute;
+        box-shadow: unset;
+        transition: 0.3s all;
+      }
+      .banner:before {
+        content:"";
+        position: absolute;
+        margin: 0;
+        width: 0;
+        height: 0;
+        border-top: 0 solid transparent;
+        border-bottom: 14px solid #eaf;
+        z-index: 2;
+        display: block;
+        font-size: 12px;
+        color: #d7d7d7;
+        top: -1px;
+      }
+      .banner:after {
+        content:"";
+        position: absolute;
+        background-color: #559c9e;
+        height: 40px;
+        width: 13px;
+        display: block;
+        margin: 0;
+        z-index: 1;
+        font-size: 12px;
+        color: #d7d7d7;
+        top: -1px;
+      }
+      .card:nth-child(odd) .banner {
+        text-align: left;
+        padding-left: 33px;
+        left: -48px;
+      }
+      .card:nth-child(odd) .banner:before {
+        content:"";
+        border-left: 8px solid transparent;
+        left: 0;
+      }
+      .card:nth-child(odd) .banner:after {
+        content:"";
+        transform: rotateZ(-2deg);
+        left: -4px;
+      }
+      .card:nth-child(even) .banner {
+        text-align: right;
+        padding-right: 31px;
+        right: -48px;
+      }
+      .card:nth-child(even) .banner:before {
+        content:"";
+        border-right: 8px solid transparent;
+        right: 0;
+      }
+      .card:nth-child(even) .banner:after {
+        content:"";
+        transform: rotateZ(2deg);
+        right: -4px;
+      }
+      .banner-title {
+        display: block;
+        height: 40px;
+        color: #393939;
+        font-weight: bold;
+        font-size: 34px;
+        font-family: sans;
+        width: 70%;
+        margin: 9px 0 20px;
+        background-color: #559c9e;
+        position: relative;
+        z-index:3;
+        transition: 0.3s all;
+      }
+      .card:nth-child(odd) .banner-title {
+        float: left;
+        text-align: left;
+        margin-left: -48px;
+        padding-left: 33px;
+      }
+      .card:nth-child(even) .banner-title {
+        float: right;
+        text-align: right;
+        margin-right: -48px;
+        padding-right: 33px;
+      }
+      .card:hover .banner-title {
+        color: #eaf;
+        transition: 0.3s all;
+      }
+      .card:nth-child(odd):hover .banner-title {
+        box-shadow: 3px 0 6px -3px #162f33;
+        transition: 0.3s all;
+      }
+      .card:nth-child(even):hover .banner-title {
+        box-shadow: -3px 0 6px -3px #162f33;
+        transition: 0.3s all;
+      }
+      .description {
+        float: left;
+        font-size: 18px;
+        font-weight: normal;
+        font-family: sans;
+        margin: 0;
+        display: block;
+        color: #d7d7d7;
+        text-align: justify;
+      }
+      footer {
+        display: block;
+        width: 100%;
+        height: 5rem;
+        text-align: center;
+        float: left;
+        margin: 20px 0 60px;
+      }
+      .top {
+        position: absolute;
+        top: 120vh;
+        bottom: 1rem;
+        right: -2rem;
+        font-size: 40px;
+        font-family: sans;
+        text-align: center;
+        line-height: 53px;
+      }
+      .top-link {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 90vh;
+        width: 33px;
+        height: 33px;
+        display: block;
+        background-color: #008e92;
+      }
+      @media screen and (max-width: 768px) {
+        .banner-title {
+          width: 100% !important;
+          font-size: 24px !important;
+          line-height: 40px !important;
+        }
+        .top {
+          right: 1rem;
+        }
+        .top-link {
+          top: 94vh;
+          box-shadow: 0 0 6px -2px #142c30;
+        }
+      }
+    </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script>function copyToClipboard(element) {
+              var $temp = $("<input>");
+              $("body").append($temp);
+              $temp.val($(element).text()).select();
+              document.execCommand("copy");
+              $temp.remove();
+              $("#copied").css("display", "block");
+              $("#copied").delay(2000).fadeOut();
+}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"></head>
+  <body id="top">
+    <header>
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.89 93.173" width="100%" height="100%">
+        <g transform="translate(24.882 -90.908)">
+            <rect x="-24.882" y="90.908" width="256.89" height="93.173" ry="5.7577" fill="#162f33" fill-rule="evenodd" style="paint-order:markers fill stroke"></rect>
+            <g fill="none" stroke="#008e92" stroke-linecap="round" stroke-width=".79375">
+                <path d="m168.24 144.22 5.4438 13.21 11.779-0.014 1.4627-5.284m-13.041-18.618h15.524l4.1649 10.819h-25.242z"></path>
+                <path d="m78.678 143.35 5.4438 13.808 11.779-0.014 1.4627-7.3412m-13.041-17.401h15.524l4.1649 11.061h-25.242z"></path>
+                <path d="m139.54 147.92h-24.674v15.334h24.737m-20.698-24.8v-5.2377h20.572v30.437"></path>
+                <path d="m165.82 139.28v-5.7685h-20.526v29.744h20.526v-4.6869"></path>
+            </g>
+            <g stroke-linecap="round">
+                <path d="m17.627 167.57h81.026" fill="#ffa4a4" stroke="#008e92" stroke-width=".79375"></path>
+                <rect x="133.46" y="114.21" width="1.6261" height="1.7029" ry=".85143" fill="#40ffef" fill-rule="evenodd" stroke-width=".0046797"></rect>
+                <g transform="matrix(.18818 0 0 .19707 7.5407 120.99)">
+                    <g stroke-linecap="round">
+                        <g transform="translate(-6.3458e-5 -.00037964)" fill-rule="evenodd" stroke-linecap="round">
+                            <g fill="#40ffef" stroke-width=".018689">
+                                <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="279.47" y="151.13" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                                <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="279.47" y="137.14" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                                <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="272.83" y="140.47" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                                <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="272.83" y="147.8" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                                <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="286.12" y="140.47" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                                <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="286.12" y="147.8" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                            </g>
+                            <g fill="#008e92" stroke-width=".034016">
+                                <rect x="135.21" y="179.53" width="12.095" height="12.095" ry="6.0477"></rect>
+                                <rect transform="rotate(-11.22)" x="64.807" y="118.11" width="12.095" height="12.095" ry="6.0477"></rect>
+                                <rect x="135.15" y="76.588" width="12.095" height="12.095" ry="6.0477"></rect>
+                            </g>
+                            <g fill="#aaa" stroke-width=".034016">
+                                <rect transform="rotate(-11.22)" x="50.721" y="104.33" width="12.095" height="12.095" ry="6.0477"></rect>
+                                <rect x="135.15" y="56.653" width="12.095" height="12.095" ry="6.0477"></rect>
+                                <rect x="134.94" y="199.33" width="12.095" height="12.095" ry="6.0477"></rect>
+                            </g>
+                            <g stroke-width=".034016">
+                                <rect transform="matrix(-.98089 -.19458 -.19458 .98089 0 0)" x="-208.17" y="61.532" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                                <rect transform="matrix(-.98089 -.19458 -.19458 .98089 0 0)" x="-222.26" y="47.746" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                                <rect transform="matrix(.98089 .19458 .19458 -.98089 0 0)" x="121.47" y="-146.52" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                                <rect transform="matrix(.98089 .19458 .19458 -.98089 0 0)" x="107.38" y="-160.31" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                                <rect transform="rotate(168.78)" x="-157.65" y="-200.16" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                                <rect transform="rotate(168.78)" x="-171.73" y="-213.94" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                            </g>
+                            <g fill="#008e92" stroke-width=".034016">
+                                <rect transform="rotate(-30)" x="49.426" y="231.6" width="12.095" height="12.095" ry="6.0477"></rect>
+                                <rect transform="rotate(-41.22)" x="-29.47" y="152.5" width="12.095" height="12.095" ry="6.0477"></rect>
+                                <rect transform="rotate(-30)" x="49.37" y="128.66" width="12.095" height="12.095" ry="6.0477"></rect>
+                            </g>
+                            <g fill="#aaa" stroke-width=".034016">
+                                <rect transform="rotate(-41.22)" x="-43.556" y="138.72" width="12.095" height="12.095" ry="6.0477"></rect>
+                                <rect transform="rotate(-30)" x="49.37" y="108.73" width="12.095" height="12.095" ry="6.0477"></rect>
+                                <rect transform="rotate(-30)" x="49.156" y="251.4" width="12.095" height="12.095" ry="6.0477"></rect>
+                            </g>
+                            <g stroke-width=".034016">
+                                <rect transform="matrix(-.94676 .32193 .32193 .94676 0 0)" x="-134.16" y="129.3" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                                <rect transform="matrix(-.94676 .32193 .32193 .94676 0 0)" x="-148.24" y="115.52" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                                <rect transform="matrix(.94676 -.32193 -.32193 -.94676 0 0)" x="47.459" y="-214.29" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                                <rect transform="matrix(.94676 -.32193 -.32193 -.94676 0 0)" x="33.373" y="-228.08" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                                <rect transform="rotate(138.78)" x="-63.368" y="-234.54" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                                <rect transform="rotate(138.78)" x="-77.455" y="-248.33" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <rect x="41" y="114.24" width="1.6261" height="1.7029" ry=".85143" fill="#40ffef" fill-rule="evenodd" stroke-width=".0046797"></rect>
+            </g>
+            <g stroke="#008e92" stroke-linecap="round">
+                <path d="m22.568 127.87v-23.042l7.4742 7.7832 7.602-7.7425 0.067 22.996" fill="none" stroke-width=".34396"></path>
+                <path d="m41.801 127.84v-11.02" fill="none" stroke-width=".34396"></path>
+                <g transform="translate(-1293.3 -1143.5)">
+                    <path d="m1339.7 1260.2v11.147" fill="none" stroke="#008e92" stroke-linecap="round" stroke-width=".34396"></path>
+                </g>
+            </g>
+            <g fill="none" stroke="#008e92" stroke-linecap="round">
+                <path d="m54.083 116.48h8.2826m-4.1432-11.434v22.848" stroke-width=".34499"></path>
+                <path d="m61.213 120.05 7.0955-0.1839c-0.53419-1.6996-2.1438-3.1752-3.9065-2.8516-1.9483 0.3576-2.8861 1.8392-3.1931 3.2315-0.42231 2.2331-0.3922 4.704 0.79109 6.0562 0.7151 0.8172 1.967 1.597 2.9714 1.5935 1.1289 0 2.2926-0.911 3.1589-2.204" stroke-width=".3463"></path>
+                <path d="m77.301 121.87c-0.036 6.0274-1.7999 6.0104-3.8788 6.0104s-3.7642-3.2018-3.7642-5.9641c1e-4 -2.7622-0.17741-5.4298 3.7183-5.4298 4.3981 0 3.9601-0.5511 3.9247 5.3835zm0.01-16.842v22.864" stroke-width=".34551" style="paint-order:markers fill stroke"></path>
+            </g>
+            <rect x="-24.485" y="91.304" width="256.1" height="92.379" ry="8.0805" fill-opacity="0" stroke="#008e92" stroke-linecap="round" stroke-miterlimit="3.8333" stroke-width=".79375"></rect>
+            <path d="m120.76 130h40.513" fill="#ffa4a4" stroke="#008e92" stroke-linecap="round" stroke-width=".56127"></path>
+            <g fill="none" stroke="#aaa" stroke-linecap="round" stroke-width=".79375">
+                <path d="m49.189 132.8 13.883 29.432 14.956-29.9"></path>
+                <path d="m102.49 174.1h81.026"></path>
+                <circle cx="33.937" cy="147.4" r="15"></circle>
+            </g>
+            <g transform="translate(-718.73 -1143.5)" fill="#a4d4ff" stroke="#aaa" stroke-linecap="round" stroke-width=".79375">
+                <path transform="translate(-574.54)" d="m1402.6 1245v61.842"></path>
+                <path d="m730.82 1245v61.842"></path>
+            </g>
+            <path d="m114.7 169.85h81.026" fill="#8dffff" fill-opacity=".34118" stroke="#aaa" stroke-linecap="round" stroke-width=".79375"></path>
+            <g fill="none" stroke="#aaa" stroke-linecap="round">
+                <g stroke-width=".34396">
+                    <path d="m134.29 127.88v-10.584"></path>
+                    <path d="m146.04 120.87c0.105-2.4362 3.4805-3.9504 4.6775-3.9467 3.3787 0.069 3.353 6.2155 3.3018 10.951"></path>
+                    <path d="m136.1 116.49h8.2836m-4.108-11.364v22.708"></path>
+                    <path d="m146.04 105.47v22.325"></path>
+                </g>
+                <path d="m116 105.1 4.5934 22.109 4.1374-10.154 4.1355 10.318 5.2219-22.278" stroke-width=".32517"></path>
+            </g>
+            <g transform="matrix(.18818 0 0 .19707 7.5407 120.99)" stroke-linecap="round">
+                <g stroke-linecap="round">
+                    <g transform="translate(-6.3458e-5 -.00037964)" fill-rule="evenodd" stroke-linecap="round">
+                        <g fill="#40ffef" stroke-width=".018689">
+                            <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="279.47" y="151.13" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                            <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="279.47" y="137.14" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                            <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="272.83" y="140.47" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                            <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="272.83" y="147.8" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                            <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="286.12" y="140.47" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                            <rect transform="matrix(3.6403 0 0 3.6403 -888.2 -402.63)" x="286.12" y="147.8" width="6.6453" height="6.6453" ry="3.3227"></rect>
+                        </g>
+                        <g fill="#008e92" stroke-width=".034016">
+                            <rect x="135.21" y="179.53" width="12.095" height="12.095" ry="6.0477"></rect>
+                            <rect transform="rotate(-11.22)" x="64.807" y="118.11" width="12.095" height="12.095" ry="6.0477"></rect>
+                            <rect x="135.15" y="76.588" width="12.095" height="12.095" ry="6.0477"></rect>
+                        </g>
+                        <g fill="#aaa" stroke-width=".034016">
+                            <rect transform="rotate(-11.22)" x="50.721" y="104.33" width="12.095" height="12.095" ry="6.0477"></rect>
+                            <rect x="135.15" y="56.653" width="12.095" height="12.095" ry="6.0477"></rect>
+                            <rect x="134.94" y="199.33" width="12.095" height="12.095" ry="6.0477"></rect>
+                        </g>
+                        <g stroke-width=".034016">
+                            <rect transform="matrix(-.98089 -.19458 -.19458 .98089 0 0)" x="-208.17" y="61.532" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                            <rect transform="matrix(-.98089 -.19458 -.19458 .98089 0 0)" x="-222.26" y="47.746" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                            <rect transform="matrix(.98089 .19458 .19458 -.98089 0 0)" x="121.47" y="-146.52" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                            <rect transform="matrix(.98089 .19458 .19458 -.98089 0 0)" x="107.38" y="-160.31" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                            <rect transform="rotate(168.78)" x="-157.65" y="-200.16" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                            <rect transform="rotate(168.78)" x="-171.73" y="-213.94" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                        </g>
+                        <g fill="#008e92" stroke-width=".034016">
+                            <rect transform="rotate(-30)" x="49.426" y="231.6" width="12.095" height="12.095" ry="6.0477"></rect>
+                            <rect transform="rotate(-41.22)" x="-29.47" y="152.5" width="12.095" height="12.095" ry="6.0477"></rect>
+                            <rect transform="rotate(-30)" x="49.37" y="128.66" width="12.095" height="12.095" ry="6.0477"></rect>
+                        </g>
+                        <g fill="#aaa" stroke-width=".034016">
+                            <rect transform="rotate(-41.22)" x="-43.556" y="138.72" width="12.095" height="12.095" ry="6.0477"></rect>
+                            <rect transform="rotate(-30)" x="49.37" y="108.73" width="12.095" height="12.095" ry="6.0477"></rect>
+                            <rect transform="rotate(-30)" x="49.156" y="251.4" width="12.095" height="12.095" ry="6.0477"></rect>
+                        </g>
+                        <g stroke-width=".034016">
+                            <rect transform="matrix(-.94676 .32193 .32193 .94676 0 0)" x="-134.16" y="129.3" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                            <rect transform="matrix(-.94676 .32193 .32193 .94676 0 0)" x="-148.24" y="115.52" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                            <rect transform="matrix(.94676 -.32193 -.32193 -.94676 0 0)" x="47.459" y="-214.29" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                            <rect transform="matrix(.94676 -.32193 -.32193 -.94676 0 0)" x="33.373" y="-228.08" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                            <rect transform="rotate(138.78)" x="-63.368" y="-234.54" width="12.095" height="12.095" ry="6.0477" fill="#008e92"></rect>
+                            <rect transform="rotate(138.78)" x="-77.455" y="-248.33" width="12.095" height="12.095" ry="6.0477" fill="#aaa"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <path d="m46.419 121.52c-0.01-2.6974 3.632-4.9783 5.1004-4.7527 2.3332 0.072 3.3428 2.277 3.3402 11.126m-8.4446-11.147v11.147" fill="none" stroke="#018a8e" stroke-linecap="round" stroke-linejoin="round" stroke-width=".35216"></path>
+        </g>
+      </svg>
+    </header>
+    <pre id="credit"><a href="https://www.instagram.com/mywoollydsgnz/" target="_blank">a woolly design</a></pre>
+    <main>
+      <pre style="font-size:22px;text-align:center;color:#40ffef;margin: 30px;">Whitelisted DCO Seating Event Payment Address</pre>
+      <pre style="display:block;margin: 0 auto 0 auto;color:#fff;max-width:600px;text-align: center;">Click to Auto Copy:</pre>
+<div class="progress" onclick="copyToClipboard('#dco_addr')">
+        <div class="progress-container">
+          <div class="progress-front">
+            
+<span id="dco_addr">addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</span>
+          </div>
+            <pre id="copied">Copied!</pre>
+        </div>
+      </div>
+      <pre style="display:block;margin: 0 auto 10px;color:#fff;max-width:600px;padding-top: 40px;text-align: center;">Text Only for Manually Copying:</pre>
+      <pre style="display: block;text-align:center;color:#40ffef;inline-size: 300px;overflow-wrap: break-word;margin: 0 auto;">addr1vxz4q8hfk2hvqftfj2wxm959cdxzxjum0s6720vlaqvz3yc72gqag</pre>
+      <pre style="display:block;margin: 0 auto 10px;color:#fff;max-width:600px;padding-top: 20px;text-align: center;">Please confirm the address above and the address you paste, matches the address as visible in the discord whitelist channel!</pre>  
+    </main>
+    <footer>
+      <pre>
+      <a href="https://github.com/MadeWithLovelace/MintedWithLovelace" target="_blank">GitHub</a> | <a href="https://twitter.com/mintedwithlove" target="_blank">Twitter</a> | <a href="https://discord.gg/2xEVRTSAeQ" target="_blank">Discord</a>
+      </pre>
+    </footer>
+</body></html>
