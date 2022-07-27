@@ -335,12 +335,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         jQuery( document ).ready(function() {
+            var hdid = 'project_id';
             var totalSeats = '0.000';
             var policyID = '0db17bcab4abb013b666faf42d0d148ea25bafaa894b9f3b8163f6e1';
             var net = 'mainnet';
-            var p_a = 'vI9089cV29';
-            var p_b = 'dJudlrdDcFqmBrqfqvqMF0';
-            var api_uri = 'https://cardano-mainnet.blockfrost.io/api/v0/assets/'
+            var p_a = '089cV29';
+            var p_b = 'dJudlrdDcFq';
+            var p_c = 'mBrqfqvqMF';
+            var api_uri = 'https://cardano-' + net + '.blockfrost.io/api/v0/assets/'
             var getTotal = true;
 
             function get_asset_meta(assetId){
@@ -349,7 +351,7 @@
                 url: api_uri + assetId,
                 async: true,
                 beforeSend: function(xhr) {
-                  xhr.setRequestHeader('project_id', net+p_a+p_b)
+                  xhr.setRequestHeader(hdid, net+'vI9'+p_a+p_b+p_c+'0')
                 },
                 success: function(data){
                   thisSeatName = convertFromHex(data['asset_name'])
@@ -376,7 +378,7 @@
                 url: api_uri + 'policy/' + policyID,
                 async: false,
                 beforeSend: function(xhr){
-                    xhr.setRequestHeader('project_id', net+p_a+p_b)
+                    xhr.setRequestHeader(hdid, net+'vI9'+p_a+p_b+p_c+'0')
                   },
                 success: function(data){
                     var totalSeats;
@@ -578,19 +580,19 @@
       
 <div class="dco_data">
     <div style="margin-bottom: 40px;">
-      <span>Current DCOSeat Sizes Filled: </span><span class="dco_nums" id="total"></span><span> / 100 pot'l</span>
+      <span>DCO Seating Status: </span><span class="dco_nums" id="total"></span><span> / 100 pot'l</span>
     </div>
     <div>
-      <span>DCOSeat Number:</span>
+      <span>DCO Seat:</span>
       <select name="mintedseats" id="minted_seats">
          <option name="default" value="0.000">~ Select a Seat ~</option>
       </select>
     </div>
     <div>
-      <span>DCOSeat Size: </span><span class="dco_nums" id="my_seat_val"></span>
+      <span>Seat Size: </span><span class="dco_nums" id="my_seat_val"></span>
     </div>
     <div>
-      <span>DCOSeat Ownership: </span><span class="dco_nums" id="my_share"></span>
+      <span>Ownership: </span><span class="dco_nums" id="my_share"></span>
     </div>
     <div>
       <span><button class="progress" id="refresh">Refresh</button></span>
