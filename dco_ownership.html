@@ -445,7 +445,6 @@
               do_pie()
             }))
             jQuery('#minted_seats').on('change', function(){
-              
               totalsget = jQuery('#total').html();
               myseatget = jQuery(this).val()
               jQuery('#seat_size').html(myseatget);
@@ -456,7 +455,7 @@
                 jQuery('#minted_seats option:contains("~ Select a Seat ~")').prop('selected', true);
                 jQuery('#seat_size').html('0');
                 jQuery('#seat_ownership').html('0');
-                get_assets(policyID);
+                do_pie();
             });
         });
       </script>
