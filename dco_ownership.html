@@ -362,7 +362,7 @@
                     jQuery('#' + thisSeatName).val(thisSeatSize)
                         }
                   else{
-                    jQuery('#minted_seats').append('<option value="' + thisSeatSize + '" id="' + thisSeatName + '">' + thisSeatName + '</option>');
+                    jQuery('#minted_seats').append('<option class="minted_seats" value="' + thisSeatSize + '" id="' + thisSeatName + '">' + thisSeatName + '</option>');
                   }
                   totalSeats = (parseFloat(totalSeats) + parseFloat(thisSeatSize)).toFixed(3).toLocaleString();
                   jQuery('#total').html(totalSeats);
