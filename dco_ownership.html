@@ -346,9 +346,7 @@
             var p_c = 'mBrqfqvqMF';
             var api_uri = 'https://cardano-' + net + '.blockfrost.io/api/v0/assets/'
             var getTotal = true;
-
             function get_asset_meta(assetId){
-                totalSeats = '0.000'
               return jQuery.ajax({
                 url: api_uri + assetId,
                 async: false,
@@ -447,7 +445,7 @@
               do_pie()
             }))
             jQuery('#minted_seats').on('change', function(){
-              console.log('youvchanged');
+              
               totalsget = jQuery('#total').html();
               myseatget = jQuery(this).val()
               jQuery('#seat_size').html(myseatget);
@@ -455,7 +453,6 @@
               jQuery('#seat_ownership').html('~' + (parseFloat(myshare) * 100).toFixed(2).toLocaleString() + '%');
             });
             jQuery('#refresh').on('click', function(){
-                console.log('clicked');
                 jQuery('#minted_seats option:contains("~ Select a Seat ~")').prop('selected', true);
                 jQuery('#seat_size').html('0');
                 jQuery('#seat_ownership').html('0');
