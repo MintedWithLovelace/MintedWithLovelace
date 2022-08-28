@@ -407,7 +407,7 @@
               var small_seats = 0.000;
               var seat_this;
               jQuery('.minted_seats').each(function(){
-                seat_this = parseFloat(jQuery(this).val());
+                seat_this = parseFloat(jQuery(this).val()).toFixed(2);
                 seat_chart.push({data:[[0, parseFloat(seat_this)]], label: jQuery(this).html()});
                 });
               seat_chart.push({data:[[0, parseFloat(small_seats)]], label: 'Smaller Seats'});
