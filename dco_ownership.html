@@ -316,6 +316,16 @@
         display: block;
         background-color: #008e92;
       }
+      #loading {
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        background: #162f33;
+        text-align: center;
+        line-height: 100px;
+        font-family: monospace;
+        font-size: 2rem;
+      }
       @media screen and (max-width: 768px) {
         .banner-title {
           width: 100% !important;
@@ -331,135 +341,11 @@
         }
       }
     </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://mintedwithlovelace.com/assets/jquery.flot.js"></script>
-    <script src="https://mintedwithlovelace.com/assets/jquery.flot.pie.js"></script>
-    <script>
-        jQuery( document ).ready(function() {
-            var hdid = 'project_id';
-            var totalSeats = '0.000';
-            var policyID = '0db17bcab4abb013b666faf42d0d148ea25bafaa894b9f3b8163f6e1';
-            var net = 'mainnet';
-            var p_a = '089cV29';
-            var p_b = 'dJudlrdDcFq';
-            var p_c = 'mBrqfqvqMF';
-            var api_uri = 'https://cardano-' + net + '.blockfrost.io/api/v0/assets/'
-            var getTotal = true;
-            function get_asset_meta(assetId){
-              return jQuery.ajax({
-                url: api_uri + assetId,
-                async: false,
-                beforeSend: function(xhr) {
-                  xhr.setRequestHeader(hdid, net+'vI9'+p_a+p_b+p_c+'0')
-                },
-                success: function(data){
-                  thisSeatName = convertFromHex(data['asset_name'])
-                  thisSeatSize = parseFloat(data['onchain_metadata']['Seat Size']).toFixed(3).toLocaleString();
-                  if( $('#' + thisSeatName).length ){
-                    jQuery('#' + thisSeatName).val(thisSeatSize)
-                        }
-                  else{
-                    jQuery('#minted_seats').append('<option class="minted_seats" value="' + thisSeatSize + '" id="' + thisSeatName + '">' + thisSeatName + '</option>');
-                  }
-                  totalSeats = (parseFloat(totalSeats) + parseFloat(thisSeatSize)).toFixed(3).toLocaleString();
-                  jQuery('#total').html(totalSeats);
-                  var sel = jQuery('#minted_seats');
-                  var selected = sel.val();
-                  var opts_list = sel.find('option');
-                  opts_list.sort(function(a, b) { return jQuery(a).text() > jQuery(b).text() ? 1 : -1; });
-                  sel.html('').append(opts_list);
-                  sel.val(selected);
-                }
-              });
-            }
-            function get_assets(policyID){
-                jQuery.ajax({
-                url: api_uri + 'policy/' + policyID,
-                async: false,
-                beforeSend: function(xhr){
-                    xhr.setRequestHeader(hdid, net+'vI9'+p_a+p_b+p_c+'0')
-                  },
-                success: function(data){
-                    var totalSeats;
-                    jQuery.each(data, function(index, value) {
-                    get_asset_meta(value['asset'], true)
-                        });
-                }
-              });
-            }
-            function convertFromHex(hex) {
-                var hex = hex.toString();
-                var str = '';
-                for (var i = 0; i < hex.length; i += 2)
-                    str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
-                return str;
-            }
-            function convertToHex(str) {
-                var hex = '';
-                for(var i=0;i<str.length;i++) {
-                    hex += ''+str.charCodeAt(i).toString(16);
-                }
-                return hex;
-            }
-            function do_pie(){
-              var seat_chart = [];
-              var small_seats = 0.000;
-              var seat_this;
-              jQuery('.minted_seats').each(function(){
-                seat_this = parseFloat(jQuery(this).val()).toFixed(2);
-                seat_chart.push({data:[[0, parseFloat(seat_this)]], label: jQuery(this).html()});
-                });
-              seat_chart.push({data:[[0, parseFloat(small_seats)]], label: 'Smaller Seats'});
-                jQuery.plot('#piechart', seat_chart, {
-                series: {
-                    pie: {
-                        show : true,
-                      combine: {
-                        color: '#999',
-                        label: 'Smaller',
-                        threshold: 0.03
-                      },
-                      stroke : {
-                        color : '#008e92' // '#40ffef'
-                      },
-                      label : {
-                        show : true,
-                        threshold : 0.03
-                      }
-                   }
-                },
-                grid: {
-                    hoverable: true,
-                  clickable: true
-                },
-                legend: {
-                    show: false
-                }
-                });
-            }
-            (function(next) {
-              get_assets(policyID);
-              next()
-            }(function() {
-              do_pie()
-            }))
-            jQuery('#minted_seats').on('change', function(){
-              totalsget = jQuery('#total').html();
-              myseatget = jQuery(this).val()
-              jQuery('#seat_size').html(myseatget);
-              myshare = (parseFloat(myseatget) / parseFloat(totalsget)).toFixed(3).toLocaleString();
-              jQuery('#seat_ownership').html('~' + (parseFloat(myshare) * 100).toFixed(2).toLocaleString() + '%');
-            });
-            jQuery('#refresh').on('click', function(){
-                jQuery('#minted_seats option:contains("~ Select a Seat ~")').prop('selected', true);
-                jQuery('#seat_size').html('0');
-                jQuery('#seat_ownership').html('0');
-                do_pie();
-            });
-        });
-      </script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"></head>
+    <script src="assets/jquery341.js"></script>
+    <script src="assets/jquery.flot.js"></script>
+    <script src="assets/jquery.flot.pie.js"></script>
+    <script src="assets/dcostats.js"></script>
+  </head>
   <body id="top">
     <header>
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.89 93.173" width="100%" height="100%">
@@ -616,28 +502,28 @@
     <pre id="credit"><a href="https://www.instagram.com/mywoollydsgnz/" target="_blank">a woolly design</a></pre>
     <main>
       <pre style="font-size:34px;text-align:center;color:#40ffef;margin: 30px;">DCO Ownership Data (unfinalized)</pre>
-      
-<div class="dco_data">
-    <div>
-      <span>DCO Seating Status: </span><span class="dco_nums" id="total"></span><span> / 100 possible</span>
-    </div>
-    <div id="piechart" style="width:100%;height:600px;margin-bottom:40px;"></div>
-    <div>
-      <span>DCO Seat:</span>
-      <select name="mintedseats" id="minted_seats">
-         <option name="default" value="0.000">~ Select a Seat ~</option>
-      </select>
-    </div>
-    <div>
-      <span>Seat Size: </span><span class="dco_nums" id="seat_size"></span>
-    </div>
-    <div>
-      <span>Ownership: </span><span class="dco_nums" id="seat_ownership"></span>
-    </div>
-    <div>
-      <span><button class="progress" id="refresh">Refresh</button></span>
-    </div>
-</div>
+      <div id="loading">Loading . . .</div>
+      <div class="dco_data">
+        <div>
+            <span>DCO Seating Status: </span><span class="dco_nums" id="total"></span><span> / 100 possible</span>
+        </div>
+        <div id="piechart" style="width:100%;height:600px;margin-bottom:40px;"></div>
+        <div>
+            <span>DCO Seat:</span>
+            <select name="mintedseats" id="minted_seats">
+                <option name="default" value="0.000">~ Select a Seat ~</option>
+            </select>
+        </div>
+        <div>
+            <span>Seat Size: </span><span class="dco_nums" id="seat_size"></span>
+        </div>
+        <div>
+            <span>Ownership: </span><span class="dco_nums" id="seat_ownership"></span>
+        </div>
+        <div>
+            <span><button class="progress" id="refresh">Refresh</button></span>
+        </div>
+      </div>
     </main>
     <footer>
       <pre>      <a href="https://github.com/MadeWithLovelace/MintedWithLovelace" target="_blank">GitHub</a> | <a href="https://twitter.com/mintedwithlove" target="_blank">Twitter</a> | <a href="https://discord.gg/2xEVRTSAeQ" target="_blank">Discord</a>
