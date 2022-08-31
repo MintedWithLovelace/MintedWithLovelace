@@ -1,4 +1,5 @@
 jQuery( document ).ready(function() {
+  var totalsget = 6.906;
   var seat_chart = [];
   var small_seats = 0.000;
   var seat_this;
@@ -32,9 +33,8 @@ jQuery( document ).ready(function() {
     legend: {
         show: false
     }
-    });
+  });
   jQuery('#minted_seats').on('change', function(){
-    totalsget = 6.906
     myseatget = jQuery(this).val()
     jQuery('#seat_size').html(myseatget);
     myshare = (parseFloat(myseatget) / parseFloat(totalsget)).toFixed(3).toLocaleString();
