@@ -37,7 +37,7 @@ jQuery( document ).ready(function() {
   }
   (function() {
     do_pie()
-  }))
+  })
   jQuery('#minted_seats').on('change', function(){
     totalsget = jQuery('#total').html();
     myseatget = jQuery(this).val()
