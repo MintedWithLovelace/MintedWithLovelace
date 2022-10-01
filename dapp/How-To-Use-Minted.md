@@ -146,106 +146,106 @@ If a person sends a little too much, for example if your NFTs are 10 ADA each an
 
 #### Setting Up a Minting Campaign
 
->> Select Campaign Type
+##### Select Campaign Type
 Choose whether to setup a minting campaign or a swap-of-existing token campaign. For this walkthrough we are choosing option 1 - Mint
 
->> Select Mint Campaign Format
+##### Select Mint Campaign Format
 In most cases you will choose a normal "Mint-on-Demand Campaign", which we'll choose in this walkthrough: 1 - Mint-on-Demand Campaign. Minted also has the functionality for an on-chain auction style campaign or "biddables", wherein payments sent are considered "bids" and remain at the wallet until the auction end is reached, and a winning payment is accepted, refunding the others.
 
->> Name This Campaign
+##### Name This Campaign
 Create an internal-use/admin-use name for this campaign. This is only used in the dapp.
 
->> MAINNET cardano-cli Filepath and TESTNET cardano-cli Filepath
+##### MAINNET cardano-cli Filepath and TESTNET cardano-cli Filepath
 These fields are most likely the same and if you followed a common guide to setup your node, you should be able to enter `/usr/local/bin/cardano-cli` for both network types
 
->> Override TESTNET_MAGIC_NUM
+##### Override TESTNET_MAGIC_NUM
 Most likely option 0 - No.  If you have a test environment and have this system variable set, you can override it if you've switched to a different subtype (preprod vs preview for example)
 
->> Blockfrost MAINNET API Key
+##### Blockfrost MAINNET API Key
 This is for the Cardano Mainnet only. If you are only setting up a test campaign you can bypass this by entering any text
 
->> Blockfrost TESTNET API Key
+##### Blockfrost TESTNET API Key
 This is the testnet-type specific key (e.g. preview..., preprod..., etc) if you are setting up for a testnet environment...if not, you can bypass this by entering any text here
 
->> Which System is This
+##### Which System is This
 Choose the type of instance you're running now. Each time you launch the dapp manually you'll be prompted, allowing your entire dapp folder to be 'portable' between systems. This option is also accessible when running the dapp headless with switch --option mainnet / --option testnet
 
->> Choose Testnet Type
+##### Choose Testnet Type
 When running on testnet you are prompted for the type of testnet here, and each time you launch the dapp on your testnet system.  
 
->> Whitelisting Options
+##### Whitelisting Options
 Choose whether to import a whitelist.csv file or have no whitelist for this campaign. Your whitelist file must be in the format: `address, total_nfts_allowed, nfts_per_payment, total_payments_allowed`. When importing, you'll need to enter the full path to the actual whitelist.csv file itself, for example: `/home/username/Documents/whitelist.csv`
 
->> Use a Blacklist?
+##### Use a Blacklist?
 If you did not import a whitelist, you have the option to setup a blacklist. This is simply setting the number of payments allowed before blacklisting a wallet.
 
->> Select Campaign Style?
+##### Select Campaign Style?
 This option is preselcted until the Airdrops feature is ready!
 
->> Choose Wallet/Policy Type
+##### Choose Wallet/Policy Type
 Here you can choose to import an existing policy key, wallet and policy keys, or to generate everything new. 
 
->> MAINNET locking slot height & TESTNET locking slot height
+##### MAINNET locking slot height & TESTNET locking slot height
 For these two settings, the slot height you enter will be used for generating a slot-locking policy, which locks at the slot you enter. If you want to generate an 'open' policy, which never locks, enter 290 for the field you're setting here.
 
->> Choose an option for royalty control
+##### Choose an option for royalty control
 Minted can automatically create your 777 Royalty Token, which mints to the same policy ID and must be minted first to be considered valid by most markets. You can also of course skip this step if you don't wish to have a 777 Royalty Token set or if you already minted this token using another method and have imported that policy id into this campaign. If you do proceed to mint the 777, you'll choose option 1 and first enter the Royalty Rate, which is the % you want to set. For 2% you would simply enter a 2 here; for 20% you'd enter 20, etc. After you enter the % you want, the dapp will verify this with a decimal formatted %, and if it looks right confirm. Lastly, you'll be prompted to enter the payout address for royalties. Only 1 is possible at this time.
 
->> Choose a Minting Sort Type
+##### Choose a Minting Sort Type
 Choose the order your NFTs should mint.
 
->> Import and Enable a Plugin?
+##### Import and Enable a Plugin?
 For most scenarios you'll choose 0 - No, unless you have a custom built Python plugin you are utilizing
 
->> Import JSON files *OR* Import JSON files & IPFS Pin Image files?
+##### Import JSON files *OR* Import JSON files & IPFS Pin Image files?
 Here you'll choose whether to import your campaign's prepared files, whether only json or both json and images for pinning. Choosing 1 - Yes is most likely for most scenarios (and what we'll assume for this walkthrough), as if you choose no you'll need to manually place your prepared files later or be utilizing a plugin which handles json files.
 
->> Prepared JSONs with "POLICY_ID" placeholder *OR* Prepared JSONs w/ "POLICY_ID" and "IPFS_HASH" placeholders
+##### Prepared JSONs with "POLICY_ID" placeholder *OR* Prepared JSONs w/ "POLICY_ID" and "IPFS_HASH" placeholders
 Here choose whether you have JSONs with your image IPFS hashes already populated or need to perform the pinning using Minted. For this walkthrough we'll assume you are pinning also and will cover those steps next.
 
->> JSON Files First / Folder Path Containing ONLY Your Prepared JSON Files
+##### JSON Files First / Folder Path Containing ONLY Your Prepared JSON Files
 First you'll be prompted to have your JSON files prepped and in a folder by themselves, no other files or folders in that folder. Then provide the full path to that folder.
 
->> Full path to the FOLDER containing your images (ONLY your images should be in this folder)
+##### Full path to the FOLDER containing your images (ONLY your images should be in this folder)
 Next you'll be prompted for the images folder, again no other files or folders in that folder and the image files must be named to match the corresponding name of your json files, e.g. MyNFT01.json would have a corresponding image file of MyNFT01.png or .jpg, etc. Again, here enter the full path to that folder.
 
->> Select Pinning Service
+##### Select Pinning Service
 Here you'll choose the IPFS pinning service you wish to use. For this walkthrough I'll cover Blockfrost, but the method is fairly similar with each of these. Note: pinning using the dapp only works with the Image tag in your json files, not any additional files-image tags you've set, if you have additional images to set in your JSON in a files list, you should do this pinning yourself and these fields should already be properly populated per NFT.
 
->> Blockfrost IPFS API Key
+##### Blockfrost IPFS API Key
 You'll need to setup a new project in your Blockfrost account which is IPFS specific. This is a unique key from your testnet or mainnet blockfrost API project keys. If using a free Blockfrost account, you'll have to choose whether to use it for IPFS or Cardano, as it limits you to 1 key.  Make sure this key is correct or the dapp may crash!  Note: After pinning completes, your imported and updated json files are now in the queued folder as previously mentioned.
 
->> Blockfrost Pinning 
+##### Blockfrost Pinning 
 When you first enter your key, the dapp will test it and generate a resulting JSON sample from your JSONs for you to inspect and approve.  If anything looks incorrect, you can exit here and try again. At this stage the dapp will now take the time to pin your images. This may take a while depending on how many images you have to pin and how large they are, your internet speed, etc.  It's best to not interrupt this process unless you know what you're doing.  After complete you'll have a message with the results of how many files processed successfully.
 
->> Choose Mint Quantity Type
+##### Choose Mint Quantity Type
 You can choose to have your campaign auto-mint based on a price per-NFT model, or mint a static qty per mint transaction (not per-price based).  For this walkthrough we'll go with option 1, Dynamic.
 
->> Maximum NFTs Allowed to Mint in a Single Sale
+##### Maximum NFTs Allowed to Mint in a Single Sale
 Here you will choose the max-per-sale, so if you setup a dynamic mint price of say 10 ADA per 1 NFT, and enter 10 here, someone sending 120 ADA would still be capped at 10 NFTs and would be refunded the 20 ADA overage.
 
->> Amount of Lovelace to Include per Mint TX
+##### Amount of Lovelace to Include per Mint TX
 This is the amount of ADA the autominter should send back along with the NFTs...this is considered the "minimum amount" as the dapp will adjust this price as required by the network, so entering 1500000 (1.5 ADA) here may end up as 2 ADA if the number of NFTs minted requires the higher ADA amount. Note: Be sure to enter the values in lovelace representation, e.g. 1.5 ADA is entered here as 1500000  (6 decimal places).  If you enter a number which is considered "unsafe" as it's too low, the dapp will warn you and you can try again.
 
->> Choose Return ADA Processing Format
+##### Choose Return ADA Processing Format
 Most scenarios will use option 1 here, as option 2 would send back your included ADA amount for each NFT being minted.
 
->> Expected Payment in Lovelace per NFT
+##### Expected Payment in Lovelace per NFT
 Here you set the "price" of each NFT for dynamic autominting. If you enter 40 for example, for every 40 ADA received from an address, 1 NFT will be minted up to the limit.  If 50 ADA were received the 10 extra is refunded along with the mint. Remember to enter this price in lovelace format, so 40 ADA would be entered as 40000000 (6 decimals)
 
->> Enter your FUNDING WALLET Mainnet Address / Testnet Address
+##### Enter your FUNDING WALLET Mainnet Address / Testnet Address
 This is the address you'll use to fund your campaign for things like minting your Royalty Token or if you are running a swap, etc.
 
->> Enter your PAYOUT ADDRESS for Mainnet / Testnet
+##### Enter your PAYOUT ADDRESS for Mainnet / Testnet
 This is the address where you'll be paid with each successful mint.
 
->> Choose Transaction Grouping Selection
+##### Choose Transaction Grouping Selection
 Most scenarios you will choose option 1 - Enable TX Grouping, as this makes your mint campaign much more efficient in grouping together mints when possible.  Option 2 forces the dapp to mint to 1 buyer at a time and is useful if you need to attach tx metadata or other significant accounting needs that demand segmentation.
 
->> Enable Scripts?
+##### Enable Scripts?
 You can optionally import a script to use with your campaign. Scripts or "action scripts" allow you to create a complex set of rules and filters for your campaign, even checking buyer's wallet holdings for specific assets, etc.
 
->> Enable Minted as a Service?
+##### Enable Minted as a Service?
 This allows you to tack on another fee per-mint. This can also be utilized if you need to split payouts to more than 1 address.
 
 After this, your campaign is setup and the dApp will exit. You can launch again and will have the option to Manage Existing Campaign, where you can view details for the campaign, access the wallet to manage funds, manually mint, launch the campaign from the Dashboard, retry any failed IPFS uploads if failures occurred, and reconfigure a campaign to change the payout/funding addresses, or other details for the campaign.
@@ -257,3 +257,4 @@ Minted has a simple fee structure which is 1 ADA per automint transaction, which
 #### Further Help and Support
 
 To explore other features, scenarios, get help and support, etc, please join the [official MintedWithLovelace discord](https://discord.gg/HzKvRWPqy5)
+
